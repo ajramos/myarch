@@ -7,4 +7,5 @@ cp -vr $HOME/.config/sxhkd .
 cp -vr $HOME/.config/polybar .
 cp -vr $HOME/.config/picom .
 cp -vr $HOME/.config/rofi .
+cp -vr $HOME/.config/tilix .
 
