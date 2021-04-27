@@ -43,4 +43,8 @@ yay -S fontconfig siji-git xorg-xfg xorg-fonts-misc
 yay -S ranger nnn pywal firefox pcmanfm
 ```
 
+## Install audio system
+```
+yay -S alsa-utils pulseaudio pulseaudio-alsa
+```
 
