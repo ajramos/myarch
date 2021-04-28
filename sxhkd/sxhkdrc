@@ -10,14 +10,24 @@ super + Return
 super + @space
 	rofi -show drun
 
-super + F1
+super + Tab
 	rofi -show window
 
-super + F2
+super + r
 	rofi -show run
 
-super + F3
+super + shift + e
+	rofi -show file-browser
+
+super + ?
+	rofi -show keys
+
+super + F5
 	rofi -show ssh
+
+super + e
+	pcmanfm
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
