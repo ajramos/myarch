@@ -40,7 +40,12 @@ yay -S fontconfig siji xorg-xfg xorg-fonts-misc
 
 ## Install other utils
 ```
-yay -S ranger nnn pywal firefox pcmanfm tmux neovim
+yay -S ranger nnn mc pywal pcmanfm tmux neovim which htop 
+```
+
+## Install internet utils
+```
+yay -S firefox elinks lynx curl chromium neomutt
 ```
 
 ## Install audio system
@@ -48,3 +53,28 @@ yay -S ranger nnn pywal firefox pcmanfm tmux neovim
 yay -S alsa-utils pulseaudio pulseaudio-alsa
 ```
 
+## Install oh-my-zsh
+```
+yay -S zsh
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+```
+## Install cloud utils
+```
+yay -S google-cloud-sdk kubens kubectx k9s dive velero linkerd popeye
+gcloud auth login
+gcloud config set project $PROJECT_NAME
+```
+
+
+## Vim Plugins
+```
+yay -S vim-plug python-pip ctags
+touch $HOME/.vim/plugins.vim
+python3 -m pip install --user --upgrade pynvim
+nvim +PlugInstall
+nvim +GoInstallBinaries
+```
+
+## Look & Feel customization
+```
+yay -S matcha-gtk-theme lxappearance-gtk3 flat-remix bibata-cursor-theme

@@ -1,0 +1,37 @@
+all: copyfiles backup
+copyfiles:
+	@echo "Copying files..."
+	@cp -v $HOME/{.zshrc,.vimrc,.tmux.conf,.robomongorc.js} .
+	@cp -v $HOME/.gitconfig .
+	@cp -v $HOME/.config/nvim/init.vim ./.config/nvim/
+	@cp -v $HOME/.config/kitty/kitty.conf ./.config/kitty/
+	@cp -vr $HOME/.local/share/fonts ./.local/share/fonts
+
+deploy: dotfiles nvim fonts
+	@echo "Deploying files..."
+
+dotfiles:
+	@cp -v {.zshrc,.vimrc,.tmux.conf,.robomongorc.js} $HOME
+	@cp -v .gitconfig $HOME
+
+nvim:
+	@mkdir -pv $HOME/.config/nvim
+	@cp -v .config/nvim/init.vim $HOME/.config/nvim/
+
+fonts:
+	@mkdir -pv $HOME/.local/share/fonts
+	@cp -vr .local/share/fonts $HOME/.local/share/
+
+kitty:
+	@mkdir -pv $HOME/.config/kitty
+	@cp -v .config/kitty/kitty.conf $HOME/.config/kitty/
+
+vim_theme:
+	@mkdir -p ~/.vim/pack/themes/start
+	@cd ~/.vim/pack/themes/start
+	@git clone https://github.com/dracula/vim.git dracula
+backup:
+	@echo "Backing files..."
+	git add -u .;
+	git commit -m "New backup `date +'%Y-%m-%d %H:%M'`";
+	git push origin main;
