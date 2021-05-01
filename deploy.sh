@@ -2,6 +2,7 @@
 
 cp -v .xinitrc $HOME
 cp -v .profile $HOME
+cp -v .gitconfig $HOME
 
 mkdir -pv $HOME/.config/bspwm
 mkdir -pv $HOME/.config/sxhkd
@@ -16,4 +17,4 @@ cp -vr polybar $HOME/.config
 cp -vr picom $HOME/.config
 cp -vr rofi $HOME/.config
 cp -vr tilix $HOME/.config
-
+cp -v X11/xorg.conf.d/* /etc/X11/xorg.conf.d/

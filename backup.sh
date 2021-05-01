@@ -2,6 +2,7 @@
 
 cp -v $HOME/.xinitrc .
 cp -v $HOME/.profile .
+cp -v $HOME/.gitconfig .
 cp -vr $HOME/.config/bspwm .
 cp -vr $HOME/.config/sxhkd .
 cp -vr $HOME/.config/polybar .
