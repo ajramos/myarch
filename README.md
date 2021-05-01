@@ -15,7 +15,7 @@ makepkg -si
 
 ## Install xserver
 ```
-yay -S xorg-server xorg-xinit xterm xorg-xclock xrander xorg-prop [xorg-apps]
+yay -S xorg-server xorg-xinit xterm xorg-xclock xrandr xorg-xprop xorg-apps
 ```
 
 ## Install graphic card drivers (watch arch linux Xorg installation guide)
@@ -35,12 +35,12 @@ yay -S picom feh nitrogen tilix polybar rofi
 
 ## Install fonts (for polybar) 
 ```
-yay -S fontconfig siji-git xorg-xfg xorg-fonts-misc
+yay -S fontconfig siji xorg-xfg xorg-fonts-misc
 ```
 
 ## Install other utils
 ```
-yay -S ranger nnn pywal firefox pcmanfm
+yay -S ranger nnn pywal firefox pcmanfm tmux neovim
 ```
 
 ## Install audio system
