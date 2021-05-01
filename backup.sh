@@ -19,4 +19,5 @@ cp -vr $HOME/.config/tilix .
 cp -vr $HOME/.config/gtk-3.0 .
 
 cp -v /etc/X11/xorg.conf.d/40-libinput.conf ./X11/xorg.conf.d/
+cp -v /etc/lightdm/{lightdm.conf,slick-greeter.conf} ./lightdm/
 cp -vr $HOME/.local/share/fonts local/share/

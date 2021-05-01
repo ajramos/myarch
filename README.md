@@ -78,3 +78,11 @@ nvim +GoInstallBinaries
 ## Look & Feel customization
 ```
 yay -S matcha-gtk-theme lxappearance-gtk3 flat-remix bibata-cursor-theme
+```
+
+## Display Manager
+```
+yay -S lightdm lightdm-gtk-greeter lightdm-slick-greeter
+sudo systemctl enable lightdm
+```
+
