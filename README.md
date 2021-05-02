@@ -41,7 +41,7 @@ yay -S fontconfig siji xorg-xfg xorg-fonts-misc
 ## Install other utils
 ```
 yay -S ranger nnn mc pywal pcmanfm tmux neovim which htop gotop 
-yay -S clipmenu 
+yay -S clipmenu scrot 
 ```
 
 ## Install screensaver & screen locker
