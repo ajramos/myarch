@@ -2,40 +2,88 @@
 # wm independent hotkeys
 #
 
-# terminal emulator
+# Launch terminal 
 super + Return
 	tilix
 
-# program launcher
+# Program launcher
 super + @space
 	rofi -show drun
 
-super + Tab
+# Window select
+super + ctrl + w
 	rofi -show window
 
+# Program Run
 super + r
 	rofi -show run
 
+# File select from launcher
 super + shift + e
 	rofi -show file-browser
 
-super + ?
-	rofi -show keys
+# This help
+super + question
+	~/.config/sxhkd/scripts/rofi_help.sh
 
+# Connect ssh
 super + F5
 	rofi -show ssh
 
+# Launch file explorer
 super + e
 	pcmanfm
 
-# make sxhkd reload its configuration files:
+# Reload sxhkd config files
 super + Escape
-	pkill -USR1 -x sxhkd
+	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 
 #
+# bspwm fine tunning (from 3rd parties)
+#
+
+# Move current window to a pre-selected space
+super + shift + m
+    bspc node -n last.!automatic
+
+# Rotate tree
+super + shift + {d,a}
+    bspc node @/ -C {forward,backward}
+
+# Send to monitor
+super + shift + equal
+    bspc node -m last --follow
+
+# Smart resize
+super +  alt + {Left,Down,Up,Right}
+  n=10; \
+  { d1=left;   d2=right;  dx=-$n; dy=0;   \
+  , d1=bottom; d2=top;    dx=0;   dy=$n;  \
+  , d1=top;    d2=bottom; dx=0;   dy=-$n; \
+  , d1=right;  d2=left;   dx=$n;  dy=0;   \
+  } \
+  bspc node --resize $d1 $dx $dy || bspc node --resize $d2 $dx $dy
+
+# Show clipmenu
+alt + v
+    CM_LAUNCHER=rofi clipmenu \
+        -location 1 \
+        -m -3 \
+        -no-show-icons \
+        -theme-str '* \{ font: 10px; \}' \
+        -theme-str 'listview \{ spacing: 0; \}' \
+        -theme-str 'window \{ width: 20em; \}'
+
+# Close screen
+super + shift + c
+    sleep 0.5; xset dpms force standby
+
+# Lock screen
+super + shift + x
+    betterlockscreen -l dim -t 'La curiosidad mató al gato'
+
 # bspwm hotkeys
-#
-
+# 
 # quit/restart bspwm
 super + alt + {q,r}
 	bspc {quit,wm -r}
@@ -44,7 +92,7 @@ super + alt + {q,r}
 super + {_,shift + }w
 	bspc node -{c,k}
 
-# alternate between the tiled and monocle layout
+# Toggle tiled and monocle layout
 super + m
 	bspc desktop -l next
 
@@ -60,11 +108,11 @@ super + g
 # state/flags
 #
 
-# set the window state
+# set window state to: tiled,pseudo_tiled,floating,fullscreen
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
-# set the node flags
+# set node flags to: marked,locked,sticky,private
 super + ctrl + {m,x,y,z}
 	bspc node -g {marked,locked,sticky,private}
 
@@ -100,7 +148,7 @@ super + {o,i}
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} '^{1-9,10}' --follow
 
 #
 # preselect

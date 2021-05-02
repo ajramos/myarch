@@ -40,7 +40,14 @@ yay -S fontconfig siji xorg-xfg xorg-fonts-misc
 
 ## Install other utils
 ```
-yay -S ranger nnn mc pywal pcmanfm tmux neovim which htop 
+yay -S ranger nnn mc pywal pcmanfm tmux neovim which htop gotop 
+yay -S clipmenu 
+```
+
+## Install screensaver & screen locker
+```
+yay -S betterlockscreen i3-lock imagemagick xorg-xdpyinfo
+betterlockscreen -u ~/Pictures/city.jpg
 ```
 
 ## Install internet utils
@@ -80,9 +87,27 @@ nvim +GoInstallBinaries
 yay -S matcha-gtk-theme lxappearance-gtk3 flat-remix bibata-cursor-theme
 ```
 
+## Polybar personalization
+If this is the first time and you want to restart config at .config/polybar
+otherwise, it is not required.
+
+Also be aware you probable will need to check the modules initialization,
+for example for battery, brightness, and so on, please follow instructions
+within the config files. 
+```
+git clone --depth=1 https://github.com/adi1090x/polybar-themes.git
+cd polybar-themes
+chmod +x setup.sh
+./setup.sh
+```
+
 ## Display Manager
 ```
 yay -S lightdm lightdm-gtk-greeter lightdm-slick-greeter
 sudo systemctl enable lightdm
 ```
 
+## Development tools
+```
+yay -S github-cli code hugo
+```
