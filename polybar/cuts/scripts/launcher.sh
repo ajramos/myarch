@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-
-rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/cuts/scripts/rofi/launcher.rasi
+mode=$1
+rofi -no-config -no-lazy-grab -show $mode -modi $mode -theme ~/.config/polybar/cuts/scripts/rofi/launcher.rasi

@@ -30,7 +30,7 @@ yay -S bspwm sxhkd
 
 ## Install launcher and panel (and some other tweak tools)
 ```
-yay -S picom feh nitrogen tilix polybar rofi
+yay -S picom feh nitrogen tilix polybar rofi dunst
 ```
 
 ## Install fonts (for polybar) 
@@ -41,7 +41,7 @@ yay -S fontconfig siji xorg-xfg xorg-fonts-misc
 ## Install other utils
 ```
 yay -S ranger nnn mc pywal pcmanfm tmux neovim which htop gotop 
-yay -S clipmenu scrot 
+yay -S clipmenu scrot xbacklight xfce4-power-manager
 ```
 
 ## Install screensaver & screen locker
@@ -52,7 +52,7 @@ betterlockscreen -u ~/Pictures/city.jpg
 
 ## Install internet utils
 ```
-yay -S firefox elinks lynx curl chromium neomutt
+yay -S firefox elinks lynx curl chromium neomutt bmon wget nm-connection-editor
 ```
 
 ## Install audio system
@@ -99,6 +99,15 @@ git clone --depth=1 https://github.com/adi1090x/polybar-themes.git
 cd polybar-themes
 chmod +x setup.sh
 ./setup.sh
+```
+
+## Rofi customization
+```
+git clone --depth 1 https://github.com/adi1090x/rofi.git
+cd rofi
+chmod +x setup.sh
+./setup.sh
+echo "export PATH=$HOME/.config/rofi/bin:$PATH" >> ~/.zshrc
 ```
 
 ## Display Manager

@@ -4,23 +4,23 @@
 
 # Launch terminal 
 super + Return
-	tilix
+	tilix 
 
 # Program launcher
 super + @space
-	rofi -show drun
+  ~/.config/polybar/cuts/scripts/launcher.sh drun
 
 # Window select
 super + ctrl + w
-	rofi -show window
+  ~/.config/polybar/cuts/scripts/launcher.sh window
 
 # Program Run
 super + r
-	rofi -show run
+  ~/.config/polybar/cuts/scripts/launcher.sh run
 
 # File select from launcher
 super + shift + e
-	rofi -show file-browser
+  ~/.config/polybar/cuts/scripts/launcher.sh file-browser
 
 # This help
 super + question
@@ -28,7 +28,7 @@ super + question
 
 # Connect ssh
 super + F5
-	rofi -show ssh
+  ~/.config/polybar/cuts/scripts/launcher.sh ssh
 
 # Launch file explorer
 super + e
@@ -37,6 +37,47 @@ super + e
 # Reload sxhkd config files
 super + Escape
 	pkill -USR1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
+
+# Display Power menu
+ctrl + alt + Delete
+  ~/.config/polybar/cuts/scripts/powermenu.sh
+
+# Capture Fullscreen Screenshot
+ctrl + Print
+  scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/'
+
+# Capture Area Screenshot
+ctrl + shift + Print
+  scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/'
+
+# Volume Control
+super + ctrl + v
+  ~/.config/rofi/applets/menu/volume.sh
+
+# Volume Up
+super + ctrl + F4
+  ICON_UP="" amixer -Mq set Master,0 5%+ unmute && notify-send -u low -t 1500 "Volume Up $ICON_UP"
+
+# Volume Down
+super + ctrl + F3
+   ICON_DOWN="" amixer -Mq set Master,0 5%- unmute && notify-send -u low -t 1500 "Volume Down $ICON_DOWN"
+
+# Volume Mute
+super + ctrl + F2
+   amixer -q set Master toggle
+
+# Network Control
+super + ctrl + n
+  ~/.config/rofi/applets/menu/network.sh
+
+# Brightness Up
+super + ctrl + F6
+  ICON_UP="" xbacklight -inc 10 && notify-send -u low -t 1500 "Brightness Up $ICON_UP"
+  
+
+# Brightness Down
+super + ctrl + F5
+  ICON_DOWN="" xbacklight -dec 10 && notify-send -u low -t 1500 "Brightness Down $ICON_DOWN"
 
 #
 # bspwm fine tunning (from 3rd parties)
@@ -70,9 +111,7 @@ alt + v
         -location 1 \
         -m -3 \
         -no-show-icons \
-        -theme-str '* \{ font: 10px; \}' \
-        -theme-str 'listview \{ spacing: 0; \}' \
-        -theme-str 'window \{ width: 20em; \}'
+        -theme ~/.config/polybar/cuts/scripts/rofi/launcher.rasi
 
 # Close screen
 super + shift + c
