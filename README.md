@@ -30,7 +30,7 @@ yay -S bspwm sxhkd
 
 ## Install launcher and panel (and some other tweak tools)
 ```
-yay -S picom feh nitrogen tilix polybar rofi dunst
+yay -S picom feh nitrogen tilix polybar rofi dunst libnotify
 ```
 
 ## Install fonts (for polybar) 
