@@ -55,28 +55,28 @@ super + ctrl + v
   ~/.config/rofi/applets/menu/volume.sh
 
 # Volume Up
-super + ctrl + F4
-  ICON_UP="" amixer -Mq set Master,0 5%+ unmute && notify-send -u low -t 1500 "Volume Up $ICON_UP"
+XF86AudioRaiseVolume
+  amixer -Mq set Master,0 5%+ unmute && ICON_UP="" notify-send -u low -t 1500 "Volume Up $ICON_UP"
 
 # Volume Down
-super + ctrl + F3
-   ICON_DOWN="" amixer -Mq set Master,0 5%- unmute && notify-send -u low -t 1500 "Volume Down $ICON_DOWN"
+XF86AudioLowerVolume
+   amixer -Mq set Master,0 5%- unmute && ICON_DOWN="" notify-send -u low -t 1500 "Volume Down $ICON_DOWN"
 
 # Volume Mute
-super + ctrl + F2
-   amixer -q set Master toggle
+XF86AudioMute
+   amixer -q set Master toggle && ICON_MUTED=" " notify-send -u low -t 1500 "Volume Muted $ICON_MUTED"
 
 # Network Control
 super + ctrl + n
   ~/.config/rofi/applets/menu/network.sh
 
 # Brightness Up
-super + ctrl + F6
+XF86MonBrightnessUp
   ICON_UP="" xbacklight -inc 10 && notify-send -u low -t 1500 "Brightness Up $ICON_UP"
   
 
 # Brightness Down
-super + ctrl + F5
+XF86MonBrightnessDown
   ICON_DOWN="" xbacklight -dec 10 && notify-send -u low -t 1500 "Brightness Down $ICON_DOWN"
 
 #

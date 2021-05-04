@@ -40,7 +40,7 @@ yay -S fontconfig siji xorg-xfg xorg-fonts-misc
 
 ## Install other utils
 ```
-yay -S ranger nnn mc pywal pcmanfm tmux neovim which htop gotop 
+yay -S ranger nnn mc pywal pcmanfm tmux neovim which htop gotop powertop
 yay -S clipmenu scrot xbacklight xfce4-power-manager
 ```
 
