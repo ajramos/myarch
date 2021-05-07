@@ -27,6 +27,10 @@ yay -S xf86-video-intel
 ```
 yay -S bspwm sxhkd 
 ```
+In order to know the keyboard code for a specific key execute the following
+```
+xev -event keyboard
+```
 
 ## Install launcher and panel (and some other tweak tools)
 ```
@@ -41,7 +45,15 @@ yay -S fontconfig siji xorg-xfg xorg-fonts-misc
 ## Install other utils
 ```
 yay -S ranger nnn mc pywal pcmanfm tmux neovim which htop gotop powertop
-yay -S clipmenu scrot xbacklight xfce4-power-manager
+yay -S usbutils iotop xarchiver calcurse
+yay -S clipmenu scrot xbacklight xfce4-power-manager pqiv 
+yay -S zathura zathura-cb zathura-djvu zathura-pdf-poppler \
+zathura-ps
+```
+
+## Install Trash can compatibility and device,network and google automount
+```
+yay -S udisks2 gvfs gvfs-smb
 ```
 
 ## Install screensaver & screen locker
@@ -53,6 +65,7 @@ betterlockscreen -u ~/Pictures/city.jpg
 ## Install internet utils
 ```
 yay -S firefox elinks lynx curl chromium neomutt bmon wget nm-connection-editor
+yay -S youtube-dl
 ```
 
 ## Install audio system
@@ -87,6 +100,7 @@ nvim +GoInstallBinaries
 yay -S matcha-gtk-theme lxappearance-gtk3 flat-remix bibata-cursor-theme
 ```
 
+
 ## Polybar personalization
 If this is the first time and you want to restart config at .config/polybar
 otherwise, it is not required.
@@ -118,5 +132,41 @@ sudo systemctl enable lightdm
 
 ## Development tools
 ```
-yay -S github-cli code hugo
+yay -S github-cli code hugo go2
+```
+
+## Install Printer service and drivers
+```
+yay -S cups cups-pdf foomatic-db-ppds avahi nss-mdns system-config-printer
+```
+After install cups-pdf it must be enabled with, the restart will allow to access
+to the [CUPS Web Admin](http://localhost:631)
+```
+sudo systemctl enable cups
+sudo systemctl restart cups
+sudo systemctl status systemd-resolved #Check it is disabled
+sudo systemctl enable avahi-daemon
+```
+Finally modify the file /etc/nsswitch.conf adding "mdns_minimal [NOTFOUND=return]":
+before the "resolve" statement in the "hosts" line, after doing so, restart
+avahi-daemon:
+```
+hosts: ... mdns_minimal [NOTFOUND=return] resolve [!UNAVAIL=return] dns ...
+```
+You should be able to list the services within your network by running:
+```
+avahi-browse --all --ignore-local --resolve --terminate
+
+```
+You can also use bssh and bvnc for looking for SSH and VNC Servers.
+
+Add your user group to the statement "SystemGroup" in the file 
+/etc/cups/cups-files.conf
+```
+SystemGroup sys root wheel ajramos
+```
+
+## Install Scanner
+```
+yay -S sane-airscan simple-scan
 ```

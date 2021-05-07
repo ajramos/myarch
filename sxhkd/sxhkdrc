@@ -44,11 +44,11 @@ ctrl + alt + Delete
 
 # Capture Fullscreen Screenshot
 ctrl + Print
-  scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/'
+  scrot '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/ && pqiv ~/Pictures/$f'
 
 # Capture Area Screenshot
 ctrl + shift + Print
-  scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/'
+  scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/ && pqiv ~/Pictures/$f'
 
 # Volume Control
 super + ctrl + v
@@ -78,6 +78,10 @@ XF86MonBrightnessUp
 # Brightness Down
 XF86MonBrightnessDown
   ICON_DOWN="" xbacklight -dec 10 && notify-send -u low -t 1500 "Brightness Down $ICON_DOWN"
+
+# Expand display to external output
+XF86Display
+  notify-send -u low -t 1500 "Not implemented yet"
 
 #
 # bspwm fine tunning (from 3rd parties)
