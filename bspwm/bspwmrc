@@ -1,6 +1,18 @@
 #! /bin/sh
 
-$HOME/.config/bspwm/bspwm_init
+# Initialize clipboard
+clipmenud &
+
+# Initialize Look and feel
+#xrandr -s 1280x800 &
+feh --bg-fill /home/ajramos/Pictures/city.jpg &
+$HOME/.config/polybar/launch.sh 
+picom &
+
+# Initialize other utilities
+tilix &
+
+pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc config pointer_modifier mod1
 

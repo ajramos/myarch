@@ -45,7 +45,7 @@ yay -S fontconfig siji xorg-xfg xorg-fonts-misc
 ## Install other utils
 ```
 yay -S ranger nnn mc pywal pcmanfm tmux neovim which htop gotop powertop
-yay -S usbutils iotop xarchiver calcurse
+yay -S usbutils iotop xarchiver calcurse jq yad
 yay -S clipmenu scrot xbacklight xfce4-power-manager pqiv 
 yay -S zathura zathura-cb zathura-djvu zathura-pdf-poppler \
 zathura-ps
@@ -53,7 +53,7 @@ zathura-ps
 
 ## Install Trash can compatibility and device,network and google automount
 ```
-yay -S udisks2 gvfs gvfs-smb
+yay -S udisks2 gvfs gvfs-smb 
 ```
 
 ## Install screensaver & screen locker
