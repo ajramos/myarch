@@ -8,19 +8,19 @@ super + Return
 
 # Program launcher
 super + @space
-  ~/.config/polybar/cuts/scripts/launcher.sh drun
+  ~/.config/polybar/scripts/launcher.sh drun
 
 # Window select
 super + ctrl + w
-  ~/.config/polybar/cuts/scripts/launcher.sh window
+  ~/.config/polybar/scripts/launcher.sh window
 
 # Program Run
 super + r
-  ~/.config/polybar/cuts/scripts/launcher.sh run
+  ~/.config/polybar/scripts/launcher.sh run
 
 # File select from launcher
 super + shift + e
-  ~/.config/polybar/cuts/scripts/launcher.sh file-browser
+  ~/.config/polybar/scripts/launcher.sh file-browser
 
 # This help
 super + question
@@ -28,7 +28,7 @@ super + question
 
 # Connect ssh
 super + F5
-  ~/.config/polybar/cuts/scripts/launcher.sh ssh
+  ~/.config/polybar/scripts/launcher.sh ssh
 
 # Launch file explorer
 super + e
@@ -40,7 +40,7 @@ super + Escape
 
 # Display Power menu
 ctrl + alt + Delete
-  ~/.config/polybar/cuts/scripts/powermenu.sh
+  ~/.config/polybar/scripts/powermenu.sh
 
 # Capture Fullscreen Screenshot
 ctrl + Print
@@ -52,7 +52,7 @@ ctrl + shift + Print
 
 # Volume Control
 super + ctrl + v
-  ~/.config/rofi/applets/menu/volume.sh
+  ~/.config/rofi/volume.sh
 
 # Volume Up
 XF86AudioRaiseVolume
@@ -68,7 +68,7 @@ XF86AudioMute
 
 # Network Control
 super + ctrl + n
-  ~/.config/rofi/applets/menu/network.sh
+  ~/.config/rofi/network.sh
 
 # Brightness Up
 XF86MonBrightnessUp
@@ -115,7 +115,7 @@ alt + v
         -location 1 \
         -m -3 \
         -no-show-icons \
-        -theme ~/.config/polybar/cuts/scripts/rofi/launcher.rasi
+        -theme ~/.config/polybar/scripts/rofi/launcher.rasi
 
 # Close screen
 super + shift + c
