@@ -56,15 +56,15 @@ super + ctrl + v
 
 # Volume Up
 XF86AudioRaiseVolume
-  amixer -Mq set Master,0 5%+ unmute && ICON_UP="" notify-send -u low -t 1500 "Volume Up $ICON_UP"
+  amixer -Mq set Master,0 5%+ unmute && notify-send -u low -t 1500 "Volume Up "
 
 # Volume Down
 XF86AudioLowerVolume
-   amixer -Mq set Master,0 5%- unmute && ICON_DOWN="" notify-send -u low -t 1500 "Volume Down $ICON_DOWN"
+   amixer -Mq set Master,0 5%- unmute && notify-send -u low -t 1500 "Volume Down "
 
 # Volume Mute
 XF86AudioMute
-   amixer -q set Master toggle && ICON_MUTED=" " notify-send -u low -t 1500 "Volume Muted $ICON_MUTED"
+   amixer -q set Master toggle && notify-send -u low -t 1500 "Volume Muted "
 
 # Network Control
 super + ctrl + n
@@ -72,12 +72,12 @@ super + ctrl + n
 
 # Brightness Up
 XF86MonBrightnessUp
-  ICON_UP="" xbacklight -inc 10 && notify-send -u low -t 1500 "Brightness Up $ICON_UP"
+  xbacklight -inc 10 && notify-send -u low -t 1500 "Brightness Up "
   
 
 # Brightness Down
 XF86MonBrightnessDown
-  ICON_DOWN="" xbacklight -dec 10 && notify-send -u low -t 1500 "Brightness Down $ICON_DOWN"
+  xbacklight -dec 10 && notify-send -u low -t 1500 "Brightness Down "
 
 # Expand display to external output
 XF86Display
