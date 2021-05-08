@@ -45,10 +45,11 @@ yay -S fontconfig siji xorg-xfg xorg-fonts-misc
 ## Install other utils
 ```
 yay -S ranger nnn mc pywal pcmanfm tmux neovim which htop gotop powertop
-yay -S usbutils iotop xarchiver jq yad libinput-gestures
-yay -S clipmenu scrot xbacklight xfce4-power-manager pqiv 
+yay -S usbutils iotop xarchiver jq yad libinput-gestures gimp
+yay -S clipmenu scrot xbacklight xfce4-power-manager pqiv gparted
 yay -S zathura zathura-cb zathura-djvu zathura-pdf-poppler \
 zathura-ps
+yay -S remmina kazam handbrake notion-app pdfmixtool onlyoffice transmission-gtk
 ```
 
 ## Install Trash can compatibility and device,network and google automount
@@ -132,7 +133,8 @@ sudo systemctl enable lightdm
 
 ## Development tools
 ```
-yay -S github-cli code hugo go2 robo3t-bin
+yay -S github-cli code hugo go2 robo3t-bin postman-bin mongodb-compass
+portainer go-swagger
 ```
 
 ## Install Printer service and drivers

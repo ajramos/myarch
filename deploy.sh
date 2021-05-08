@@ -11,6 +11,7 @@ mkdir -pv $HOME/.config/bspwm
 mkdir -pv $HOME/.config/dunst
 mkdir -pv $HOME/.config/gtk-3.0
 mkdir -pv $HOME/.config/kitty
+mkdir -pv $HOME/.oh-my-zsh/custom
 mkdir -pv $HOME/.config/pcmanfm
 mkdir -pv $HOME/.config/picom
 mkdir -pv $HOME/.config/polybar
@@ -23,6 +24,7 @@ cp -vr bspwm $HOME/.config
 cp -vr dunst $HOME/.config
 cp -vr kitty $HOME/.config
 cp -vr gtk-3.0 $HOME/.config
+cp -vr oh-my-zsh/aliases.zsh $HOME/.oh-my-zsh/custom
 cp -vr pcmanfm $HOME/.config
 cp -vr picom $HOME/.config
 cp -vr polybar $HOME/.config
