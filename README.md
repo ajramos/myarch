@@ -45,7 +45,7 @@ yay -S fontconfig siji xorg-xfg xorg-fonts-misc
 ## Install other utils
 ```
 yay -S ranger nnn mc pywal pcmanfm tmux neovim which htop gotop powertop
-yay -S usbutils iotop xarchiver jq yad
+yay -S usbutils iotop xarchiver jq yad libinput-gestures
 yay -S clipmenu scrot xbacklight xfce4-power-manager pqiv 
 yay -S zathura zathura-cb zathura-djvu zathura-pdf-poppler \
 zathura-ps
@@ -132,7 +132,7 @@ sudo systemctl enable lightdm
 
 ## Development tools
 ```
-yay -S github-cli code hugo go2
+yay -S github-cli code hugo go2 robo3t-bin
 ```
 
 ## Install Printer service and drivers
@@ -169,4 +169,9 @@ SystemGroup sys root wheel ajramos
 ## Install Scanner
 ```
 yay -S sane-airscan simple-scan
+```
+
+## Install Collaboration and SNS
+```
+yay -S slack-desktop telegram-desktop cawbird
 ```

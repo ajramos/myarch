@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-NOTIFY_ICON=/usr/share/icons/Papirus/32x32/apps/system-software-update.svg
+NOTIFY_ICON=$HOME/.config/dunst/critical.png
 
 get_total_updates() { UPDATES=$(checkupdates 2>/dev/null | wc -l); }
 
