@@ -8,6 +8,7 @@ cp -v $HOME/.xinitrc .
 cp -v $HOME/.zshrc .
 
 cp -vr $HOME/.config/bspwm .
+cp -vr $HOME/.config/dunst .
 cp -vr $HOME/.config/kitty .
 cp -vr $HOME/.config/nvim .
 cp -vr $HOME/.config/sxhkd .

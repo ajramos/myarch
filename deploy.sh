@@ -8,6 +8,7 @@ cp -v .xinitrc $HOME
 cp -v .zshrc $HOME
 
 mkdir -pv $HOME/.config/bspwm
+mkdir -pv $HOME/.config/dunst
 mkdir -pv $HOME/.config/gtk-3.0
 mkdir -pv $HOME/.config/kitty
 mkdir -pv $HOME/.config/pcmanfm
@@ -19,6 +20,7 @@ mkdir -pv $HOME/.config/tilix
 mkdir -pv $HOME/.config/Pictures
 
 cp -vr bspwm $HOME/.config
+cp -vr dunst $HOME/.config
 cp -vr kitty $HOME/.config
 cp -vr gtk-3.0 $HOME/.config
 cp -vr pcmanfm $HOME/.config
