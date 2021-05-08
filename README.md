@@ -48,7 +48,7 @@ yay -S ranger nnn mc pywal pcmanfm tmux neovim which htop gotop powertop
 yay -S usbutils iotop xarchiver jq yad libinput-gestures gimp
 yay -S clipmenu scrot xbacklight xfce4-power-manager pqiv gparted
 yay -S zathura zathura-cb zathura-djvu zathura-pdf-poppler \
-zathura-ps
+zathura-ps vlc
 yay -S remmina kazam handbrake notion-app pdfmixtool onlyoffice transmission-gtk
 ```
 
