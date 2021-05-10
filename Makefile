@@ -145,15 +145,15 @@ install-all: yay xserver video-driver wm audio launch-bar fm utils media gvfs \
 				scanner sns
 
 yay:
-	@sudo pacman --needed git base-devel
+	@sudo pacman -S --needed git base-devel
 	@cd /opt
-	@sudo git clone https:/aur.archlinux.org/yay-git.git
-	@sudo chown -R ajramos:ajramos ./yay-git
-	@cd yay-git 
+	@sudo git clone https:/aur.archlinux.org/yay.git
+	@sudo chown -R ajramos:ajramos ./yay
+	@cd yay
 	@makepkg -si
 
 xserver:
-	@yay -S xorg-server xorg-xinit xterm xorg-xclock xrandr xorg-xprop xorg-apps
+	@yay -S xorg-server xorg-xinit xterm xorg-xclock xorg-xrandr xorg-xprop xorg-apps
 
 video-driver:
 	@yay -S xf86-video-intel
@@ -166,14 +166,14 @@ audio:
 
 launch-bar:
 	@yay -S picom feh nitrogen tilix polybar rofi dunst libnotify \
-	fontconfig siji xorg-xfg xorg-fonts-misc
+	fontconfig siji xorg-xfd xorg-fonts-misc
 
 fm:
 	@yay -S ranger nnn mc pcmanfm
 
 utils:
 	@yay -S pywal tmux neovim which htop gotop powertop iotop usbutils jq yad \
-	xarchiver libinput-gestures clipmenu scrot xbacklight xfce4-power-manager \
+	xarchiver libinput-gestures clipmenu scrot xorg-xbacklight xfce4-power-manager \
 	pqiv gparted zathura zathura-cb zathura-djvu zathura-pdf-poppler zathura-ps \
 	remmina notion-app pdfmixtool onlyoffice
 
@@ -184,7 +184,7 @@ gvfs:
 	@yay -S udisks2 gvfs gvfs-smb 
 
 screenlocker:
-	@yay -S betterlockscreen i3-lock imagemagick xorg-xdpyinfo
+	@yay -S betterlockscreen i3lock imagemagick xorg-xdpyinfo
 	@betterlockscreen -u ~/Pictures/city.jpg
 
 internet:
@@ -215,8 +215,8 @@ dm:
 	@sudo systemctl enable lightdm
 
 dev:
-	@yay -S github-cli code hugo go2 robo3t-bin postman-bin mongodb-compass
-	@portainer go-swagger
+	@yay -S github-cli code hugo go2 robo3t-bin postman-bin mongodb-compass \
+	portainer go-swagger
 
 printer:
 	@yay -S cups cups-pdf foomatic-db-ppds avahi nss-mdns system-config-printer
