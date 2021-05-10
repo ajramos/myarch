@@ -40,7 +40,7 @@ bspwm-config:
 
 dotfiles-config:
 	@echo "Deploying dotfiles..."
-	@cp -v {.zshrc,.tmux.conf,.robomongorc.js} ~
+	@cp -v {.zshrc,.vimrc,.tmux.conf,.robomongorc.js} ~
 	@cp -v {.gitconfig,.gtkrc-2.0,.xinitrc,.profile} ~
 
 dunst-config:
