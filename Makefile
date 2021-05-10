@@ -141,7 +141,7 @@ backup-repo:
 	@git push origin main;
 
 install-all: yay xserver video-driver wm audio launch-bar fm utils media gvfs \
-				screenlocker internet zsh cloud nvim-plugin theme dm dev printer \
+				screenlocker internet zsh cloud theme dm dev printer \
 				scanner sns
 
 yay:
@@ -197,8 +197,8 @@ zsh:
 
 cloud:
 	@yay -S google-cloud-sdk kubens kubectx k9s dive velero linkerd popeye helm
-	@gcloud auth login
-	@gcloud config set project $PROJECT_NAME
+#	@gcloud auth login
+#	@gcloud config set project $PROJECT_NAME
 
 nvim-plugin:
 	@yay -S vim-plug python-pip ctags
