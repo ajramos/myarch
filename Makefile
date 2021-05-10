@@ -1,24 +1,24 @@
 all: copy-config backup-config
 copy-config:
 	@echo "Copying config files..."
-	@cp -v $HOME/{.zshrc,.vimrc,.tmux.conf,.robomongorc.js} .
-	@cp -v $HOME/{.gitconfig,.gtkrc-2.0,.xinitrc,.profile} .
-	@cp -vr $HOME/.config/bspwm .
-	@cp -vr $HOME/.config/dunst .
-	@cp -vr $HOME/.config/kitty .
-	@cp -vr $HOME/.config/nvim .
-	@cp -vr $HOME/.config/sxhkd .
-	@cp -vr $HOME/.config/picom .
-	@cp -vr $HOME/.config/polybar .
-	@cp -vr $HOME/.config/rofi .
-	@cp -vr $HOME/.config/sxhkd .
-	@cp -vr $HOME/.config/tilix .
-	@cp -vr $HOME/.config/gtk-3.0 .
-	@cp -vr $HOME/.config/pcmanfm .
-	@cp -v $HOME/.oh-my-zsh/custom/aliases.zsh oh-my-zsh/
+	@cp -v ~/{.zshrc,.vimrc,.tmux.conf,.robomongorc.js} .
+	@cp -v ~/{.gitconfig,.gtkrc-2.0,.xinitrc,.profile} .
+	@cp -vr ~/.config/bspwm .
+	@cp -vr ~/.config/dunst .
+	@cp -vr ~/.config/kitty .
+	@cp -vr ~/.config/nvim .
+	@cp -vr ~/.config/sxhkd .
+	@cp -vr ~/.config/picom .
+	@cp -vr ~/.config/polybar .
+	@cp -vr ~/.config/rofi .
+	@cp -vr ~/.config/sxhkd .
+	@cp -vr ~/.config/tilix .
+	@cp -vr ~/.config/gtk-3.0 .
+	@cp -vr ~/.config/pcmanfm .
+	@cp -v ~/.oh-my-zsh/custom/aliases.zsh oh-my-zsh/
 	@cp -v /etc/X11/xorg.conf.d/40-libinput.conf ./X11/xorg.conf.d/
 	@cp -v /etc/lightdm/{lightdm.conf,slick-greeter.conf} ./lightdm/
-	@cp -vr $HOME/.local/share/fonts local/share/
+	@cp -vr ~/.local/share/fonts local/share/
 	@cp -v /etc/nsswitch.conf printer/nss-mdns/
 	@yay -Q > package_list.txt
 
@@ -30,38 +30,38 @@ tilix-config vim-theme-config wallpaper-config xorg-config
 
 aliases-config:
 	@echo "Deploying oh-my-zsh aliases files..."
-	@mkdir -pv $HOME/.oh-my-zsh/custom
-	@cp -vr oh-my-zsh/aliases.zsh $HOME/.oh-my-zsh/custom/
+	@mkdir -pv ~/.oh-my-zsh/custom
+	@cp -vr oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom/
 
 bspwm-config:
 	@echo "Deploying bspwm config files..."
-	@mkdir -pv $home/.config/bspwm
-	@cp -vr .config/bspwm/ $HOME/.config/
+	@mkdir -pv ~/.config/bspwm
+	@cp -vr bspwm/ ~/.config/
 
 dotfiles-config:
 	@echo "Deploying dotfiles..."
-	@cp -v {.zshrc,.vimrc,.tmux.conf,.robomongorc.js} $HOME
-	@cp -v {.gitconfig,.gtkrc-2.0,.xinitrc,.profile} $HOME
+	@cp -v {.zshrc,.tmux.conf,.robomongorc.js} ~
+	@cp -v {.gitconfig,.gtkrc-2.0,.xinitrc,.profile} ~
 
 dunst-config:
 	@echo "Deploying dunst config files..."
-	@mkdir -pv $HOME/.config/dunst
-	@cp -vr .config/dunst/ $HOME/.config/
+	@mkdir -pv ~/.config/dunst
+	@cp -vr dunst/ ~/.config/
 
 fonts-config:
 	@echo "Deploying font files..."
-	@mkdir -pv $HOME/.local/share/fonts
-	@cp -vr .local/share/fonts $HOME/.local/share/
+	@mkdir -pv ~/.local/share/fonts
+	@cp -vr local/share/fonts ~/.local/share/
 
 gtk-3.0-config:
 	@echo "Deploying gtk3 files..."
-	@mkdir -pv $HOME/.config/gtk-3.0
-	@cp -vr .config/gtk-3.0/ $HOME/.config/
+	@mkdir -pv ~/.config/gtk-3.0
+	@cp -vr gtk-3.0/ ~/.config/
 
 kitty-config:
 	@echo "Deploying kitty files..."
-	@mkdir -pv $HOME/.config/kitty
-	@cp -vr .config/kitty/ $HOME/.config/
+	@mkdir -pv ~/.config/kitty
+	@cp -vr kitty/ ~/.config/
 
 lightdm-config:
 	@echo "Deploying window manager files..."
@@ -70,18 +70,17 @@ lightdm-config:
 
 lock-config:
 	@echo "Setting lock screen config..."
-	@betterlockscreen -u $HOME/Pictures/city.jpg
 
 nvim-config:
 	@echo "Setting Neovim config..."
-	@mkdir -pv $HOME/.config/nvim
-	@cp -vr .config/nvim/ $HOME/.config/
+	@mkdir -pv ~/.config/nvim
+	@cp -vr nvim/ ~/.config/
 	@nvim +PlugInstall
 
 pcmanfm-config:
 	@echo "Deploying PCManFM config files..."
-	@mkdir -pv $HOME/.config/pcmanfm
-	@cp -vr .config/pcmanfm/ $HOME/.config/
+	@mkdir -pv ~/.config/pcmanfm
+	@cp -vr pcmanfm/ ~/.config/
 
 pdf-default-config:	
 	@echo "Setting Zathura as default PDF viewer..."
@@ -89,13 +88,13 @@ pdf-default-config:
 
 picom-config:
 	@echo "Deploying picom config files..."
-	@mkdir -pv $HOME/.config/picom
-	@cp -vr .config/picom/ $HOME/.config/
+	@mkdir -pv ~/.config/picom
+	@cp -vr picom/ ~/.config/
 
 polybar-config:
 	@echo "Deploying polybar config files..."
-	@mkdir -pv $HOME/.config/polybar
-	@cp -vr .config/polybar/ $HOME/.config/
+	@mkdir -pv ~/.config/polybar
+	@cp -vr polybar/ ~/.config/
 
 printer-config:
 	@echo "Deploying printer config files..."
@@ -105,18 +104,18 @@ printer-config:
 
 rofi-config:
 	@echo "Deploying rofi config files..."
-	@mkdir -pv $HOME/.config/rofi
-	@cp -vr .config/rofi/ $HOME/.config/
+	@mkdir -pv ~/.config/rofi
+	@cp -vr rofi/ ~/.config/
 
 sxhkd-config:
 	@echo "Deploying sxhkd config files..."
-	@mkdir -pv $HOME/.config/sxhkd
-	@cp -vr .config/sxhkd/ $HOME/.config/
+	@mkdir -pv ~/.config/sxhkd
+	@cp -vr sxhkd/ ~/.config/
 
 tilix-config:
 	@echo "Deploying tilix config files..."
-	@mkdir -pv $HOME/.config/tilix
-	@cp -vr .config/tilix/ $HOME/.config/
+	@mkdir -pv ~/.config/tilix
+	@cp -vr tilix/ ~/.config/
 
 vim-theme-config:
 	@echo "Deploying vim config files..."
@@ -126,9 +125,10 @@ vim-theme-config:
 
 wallpaper-config:
 	@echo "Deploying wallpaper config files..."
-	@mkdir -pv $HOME/Pictures
-	@cp -v wallpapers/city.jpg $HOME/Pictures/
+	@mkdir -pv ~/Pictures
+	@cp -v wallpapers/city.jpg ~/Pictures/
 	@sudo cp -v wallpapers/city.jpg /usr/share/pixmaps/
+	@betterlockscreen -u ~/Pictures/city.jpg
 
 xorg-config:
 	@echo "Deploying XOrg config files..."
@@ -140,7 +140,12 @@ backup-repo:
 	@git commit -m "New backup `date +'%Y-%m-%d %H:%M'`";
 	@git push origin main;
 
-install-all: yay xserver video-driver wm audio launch-bar fm utils media gvfs \
+locale-config:
+	sudo localectl set-keymap es
+	sudo localectl set-x11-keymap es
+
+
+install-all: xserver video-driver wm audio launch-bar fm utils media gvfs \
 				screenlocker internet zsh cloud theme dm dev printer \
 				scanner sns
 
@@ -175,7 +180,7 @@ utils:
 	@yay -S pywal tmux neovim which htop gotop powertop iotop usbutils jq yad \
 	xarchiver libinput-gestures clipmenu scrot xorg-xbacklight xfce4-power-manager \
 	pqiv gparted zathura zathura-cb zathura-djvu zathura-pdf-poppler zathura-ps \
-	remmina notion-app pdfmixtool onlyoffice
+	remmina pdfmixtool onlyoffice
 
 media:
 	@yay -S gimp kazam handbrake vlc
@@ -184,7 +189,7 @@ gvfs:
 	@yay -S udisks2 gvfs gvfs-smb 
 
 screenlocker:
-	@yay -S betterlockscreen i3lock imagemagick xorg-xdpyinfo
+	@yay -S betterlockscreen imagemagick xorg-xdpyinfo
 	@betterlockscreen -u ~/Pictures/city.jpg
 
 internet:
@@ -193,7 +198,7 @@ internet:
 
 zsh:
 	@yay -S zsh
-	@sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 cloud:
 	@yay -S google-cloud-sdk kubens kubectx k9s dive velero linkerd popeye helm
@@ -202,7 +207,7 @@ cloud:
 
 nvim-plugin:
 	@yay -S vim-plug python-pip ctags
-	@touch $HOME/.vim/plugins.vim
+	@touch ~/.vim/plugins.vim
 	@python3 -m pip install --user --upgrade pynvim
 	@nvim +PlugInstall
 	@nvim +GoInstallBinaries
