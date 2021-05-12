@@ -8,6 +8,8 @@ alsa-plugins 1:1.2.2-2
 alsa-topology-conf 1.2.4-2
 alsa-ucm-conf 1.2.4-2
 alsa-utils 1.2.4-2
+ansible 3.3.0-2
+ansible-core 2.11.0-2
 aom 3.1.0-1
 archlinux-keyring 20210110-1
 argon2 20190702-3
@@ -112,6 +114,7 @@ flex 2.6.4-3
 fluidsynth 2.1.8-1
 fontconfig 2:2.13.93-4
 foomatic-db-ppds 3:20210222-1
+fortune-mod 2.12.0-1
 freetype2 2.10.4-1
 fribidi 1.0.10-1
 fuse-common 3.10.3-1
@@ -138,6 +141,7 @@ glib2 2.68.1-1
 glib2-docs 2.68.1-1
 glibc 2.33-4
 glibmm 2.66.0-1
+glslang 11.4.0-1
 gmime3 3.2.7-1
 gmp 6.2.1-1
 gnome-desktop 1:40.1-1
@@ -286,8 +290,10 @@ libdca 0.0.7-1
 libde265 1.0.8-1
 libdrm 2.4.105-1
 libdv 1.0.0-9
+libdvbpsi 1:1.3.3-2
 libdvdnav 6.1.1-1
 libdvdread 6.1.2-1
+libebml 1.4.2-1
 libedit 20210419_3.1-1
 libelf 0.183-3
 libepoxy 1.5.7-1
@@ -339,6 +345,7 @@ liblrdf 0.6.1-4
 libluv 1.41.0-1
 libmad 0.15.1b-9
 libmanette 0.2.6-2
+libmatroska 1.6.3-1
 libmfx 20.5.1-1
 libmicrodns 0.2.0-1
 libmicrohttpd 0.9.73-1
@@ -376,6 +383,7 @@ libpcap 1.10.0-1
 libpciaccess 0.16-2
 libpgm 5.3.128-1
 libpipeline 1.5.3-1
+libplacebo 3.120.2-1
 libplist 2.2.0-3
 libpng 1.6.37-3
 libproxy 0.4.17-1
@@ -404,6 +412,7 @@ libsrtp 1:2.3.0-1
 libssh 0.9.5-1
 libssh2 1.9.0-3
 libsynctex 2020.54586-14
+libtar 1.2.20-5
 libtasn1 4.16.0-1
 libteam 1.31-3
 libtermkey 0.22-2
@@ -484,6 +493,7 @@ lm_sensors 1:3.6.0.r41.g31d1f125-1
 lmdb 0.9.29-1
 lua 5.4.3-1
 lua51 5.1.5-9
+lua52 5.2.4-5
 lua53 5.3.6-1
 luajit 2.0.5-3
 luit 20201003-1
@@ -615,6 +625,7 @@ python 3.9.4-1
 python-anytree 2.8.0-3
 python-appdirs 1.4.4-3
 python-babel 2.9.0-1
+python-bcrypt 3.2.0-3
 python-cachecontrol 0.12.6-3
 python-cairo 1.20.0-3
 python-cffi 1.14.5-1
@@ -640,6 +651,7 @@ python-markupsafe 1.1.1-7
 python-msgpack 1.0.2-2
 python-ordered-set 4.0.2-3
 python-packaging 20.9-1
+python-paramiko 2.7.2-3
 python-pep517 0.10.0-1
 python-pillow 8.2.0-2
 python-pip 20.3.1-1
@@ -650,6 +662,7 @@ python-pycparser 2.20-3
 python-pycups 2.0.1-3
 python-pycurl 7.43.0.6-4
 python-pygments 2.9.0-1
+python-pynacl 1.4.0-3
 python-pyopenssl 20.0.1-1
 python-pyparsing 2.4.7-3
 python-pytz 2021.1-1
@@ -671,19 +684,23 @@ python-sphinxcontrib-serializinghtml 1.1.4-6
 python-toml 0.10.2-3
 python-urllib3 1.26.4-1
 python-webencodings 0.5.1-6
+python-yaml 5.4.1.1-2
 python2 2.7.18-3
 pywal-git 3.3.0.r128.g4997a49-1
 qpdf 10.3.1-1
 qt5-base 5.15.2+kde+r192-1
 qt5-declarative 5.15.2+kde+r24-1
 qt5-imageformats 5.15.2-1
+qt5-svg 5.15.2+kde+r7-1
 qt5-tools 5.15.2+kde+r17-1
 qt5-wayland 5.15.2+kde+r19-1
+qt5-x11extras 5.15.2-1
 ranger 1.9.3-3
 raptor 2.0.15-16
 rav1e 0.4.1-1
 re2 1:20210401-1
 readline 8.1.0-2
+recode 3.7.8-1
 remmina 1:1.4.13-1
 rest 0.8.1-3
 rhash 1.4.1-1
@@ -703,6 +720,7 @@ sdl2 2.0.14-1
 sed 4.8-1
 semver 7.3.5-2
 serd 0.30.10-1
+shaderc 2020.5-1
 shadow 4.8.1-4
 shared-mime-info 2.0+57+gc1d1c70-1
 siji 2021.01.01-1
@@ -719,6 +737,7 @@ soundtouch 2.2-1
 spandsp 0.0.6-3
 speex 1.2.0-3
 speexdsp 1.2.0-2
+spirv-tools 2020.7-1
 sqlite 3.35.5-1
 sratom 0.6.8-1
 srt 1.4.3-1
@@ -770,6 +789,7 @@ vid.stab 1.1-3
 vim 8.2.2815-1
 vim-plug 0.10.0-1
 vim-runtime 8.2.2815-1
+vlc 3.0.13-1
 vmaf 1.5.3-1
 volume_key 0.3.12-5
 vte-common 0.64.1-1

@@ -39,7 +39,7 @@ yay -S picom feh nitrogen tilix polybar rofi dunst libnotify
 
 ## Install fonts (for polybar) 
 ```
-yay -S fontconfig siji xorg-xfg xorg-fonts-misc
+yay -S fontconfig siji xorg-xfg xorg-fonts-misc ttf-iosevka-term
 ```
 
 ## Install other utils

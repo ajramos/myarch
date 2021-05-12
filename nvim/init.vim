@@ -16,6 +16,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'preservim/tagbar'
+Plug 'stephpy/vim-yaml', {'for': 'yaml'}
 
 call plug#end()
 
