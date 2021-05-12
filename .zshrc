@@ -132,3 +132,5 @@ fi
 
 # Config Rofi-themes
 export PATH=$HOME/.config/rofi/bin:$PATH
+# Starship config
+eval "$(starship init zsh)"

@@ -46,6 +46,7 @@ ca-certificates-mozilla 3.64-1
 ca-certificates-utils 20181109-4
 cairo 1.17.4-5
 cairomm 1.12.2-4
+calc 2.12.7.1-2
 calcurse 4.7.1-1
 cantarell-fonts 1:0.301-1
 cawbird 1.4-1
@@ -238,6 +239,8 @@ k9s 0.24.8-1
 kazam 1.4.5-9
 kbd 2.4.0-2
 keyutils 1.6.3-1
+kitty 0.20.3-1
+kitty-terminfo 0.20.3-1
 kmod 28-1
 krb5 1.19.1-1
 kubectl 1.21.0-1
@@ -544,6 +547,7 @@ node-gyp 8.0.0-1
 nodejs 16.1.0-1
 notion-app 2:2.0.16-9
 notmuch-runtime 0.32-1
+noto-fonts-emoji 20200916-1
 npm 7.12.0-1
 npth 1.6-3
 nspr 4.30-1
@@ -770,6 +774,7 @@ tre 0.8.0-6
 tslib 1.22-1
 ttf-carlito 20130920-6
 ttf-dejavu 2.37+18+g9b5d1b2f-3
+ttf-iosevka-term 6.1.3-1
 ttf-liberation 2.1.4-1
 ttf-opensans 1.101-2
 ttf-weather-icons 2.0.12-1

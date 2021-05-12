@@ -39,7 +39,7 @@ yay -S picom feh nitrogen tilix polybar rofi dunst libnotify
 
 ## Install fonts (for polybar) 
 ```
-yay -S fontconfig siji xorg-xfg xorg-fonts-misc ttf-iosevka-term
+yay -S fontconfig siji xorg-xfg xorg-fonts-misc ttf-iosevka-term noto-fonts-emoji 
 ```
 
 ## Install other utils
@@ -176,4 +176,9 @@ yay -S sane-airscan simple-scan
 ## Install Collaboration and SNS
 ```
 yay -S slack-desktop telegram-desktop cawbird
+```
+
+## Prompt customization with starship
+```
+sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 ```

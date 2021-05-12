@@ -17,6 +17,7 @@ copy-config:
 	@cp -vr ~/.config/pcmanfm .
 	@cp -v ~/.oh-my-zsh/custom/aliases.zsh oh-my-zsh/
 	@cp -v /etc/X11/xorg.conf.d/40-libinput.conf ./X11/xorg.conf.d/
+	@cp -v /etc/X11/xorg.conf.d/20-intel.conf ./X11/xorg.conf.d/
 	@cp -v /etc/lightdm/{lightdm.conf,slick-greeter.conf} ./lightdm/
 	@cp -vr ~/.local/share/fonts local/share/
 	@cp -v /etc/nsswitch.conf printer/nss-mdns/
@@ -26,7 +27,8 @@ deploy: aliases-config bspwm-config dotfiles-config dunst-config fonts-config \
 gtk-3.0-config kitty-config lightdm-config lock-config \
 nvim-config pcmanfm-config pdf-default-config picom-config \
 polybar-config printer-config rofi-config sxhkd-config \
-tilix-config vim-theme-config wallpaper-config xorg-config 
+tilix-config vim-theme-config wallpaper-config xorg-config \
+starship-config
 
 aliases-config:
 	@echo "Deploying oh-my-zsh aliases files..."
@@ -106,6 +108,10 @@ rofi-config:
 	@echo "Deploying rofi config files..."
 	@mkdir -pv ~/.config/rofi
 	@cp -vr rofi/ ~/.config/
+
+startship-config:
+	@echo "Installing/updating starship..."
+	@sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 sxhkd-config:
 	@echo "Deploying sxhkd config files..."
