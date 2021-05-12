@@ -1,0 +1,12 @@
+[character]
+success_symbol = "[➜](bold green) "
+error_symbol = "[✗](bold red) "
+
+[kubernetes]
+format = 'on [⛵ $context \($namespace\)](dimmed green) '
+disabled = false
+
+[kubernetes.context_aliases]
+#"cluster_name" = "alias"
+"cluster_name" = "alias"
+

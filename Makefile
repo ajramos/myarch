@@ -1,8 +1,15 @@
 all: copy-config backup-config
 copy-config:
 	@echo "Copying config files..."
-	@cp -v ~/{.zshrc,.vimrc,.tmux.conf,.robomongorc.js} .
-	@cp -v ~/{.gitconfig,.gtkrc-2.0,.xinitrc,.profile} .
+	@cp -v ~/.zshrc ./zsh/
+	@cp -v ~/.vimrc ./vim/
+	@cp -v ~/.tmux.conf ./tmux/
+	@cp -v ~/.robomongorc.js ./robo3t/
+	@cp -v ~/.gitconfig ./git/
+	@cp -v ~/.gtkrc-2.0 ./gtk2/
+	@cp -v ~/.xinitrc ./xinit/
+	@cp -v ~/.profile ./profile/
+	@cp -v ~/.config/starship.toml ./starship/
 	@cp -vr ~/.config/bspwm .
 	@cp -vr ~/.config/dunst .
 	@cp -vr ~/.config/kitty .
@@ -42,8 +49,14 @@ bspwm-config:
 
 dotfiles-config:
 	@echo "Deploying dotfiles..."
-	@cp -v {.zshrc,.vimrc,.tmux.conf,.robomongorc.js} ~
-	@cp -v {.gitconfig,.gtkrc-2.0,.xinitrc,.profile} ~
+	@cp -v ./zsh/.zshrc ~
+	@cp -v ./vim/.vimrc ~
+	@cp -v ./tmux/.tmux.conf ~
+	@cp -v ./robo3t/.robomongorc.js ~
+	@cp -v ./git/.gitconfig ~
+	@cp -v ./gtk2/.gtkrc-2.0 ~
+	@cp -v ./xinit/.xinitrc ~
+	@cp -v ./profile/.profile ~
 
 dunst-config:
 	@echo "Deploying dunst config files..."
@@ -109,9 +122,10 @@ rofi-config:
 	@mkdir -pv ~/.config/rofi
 	@cp -vr rofi/ ~/.config/
 
-startship-config:
+starship-config:
 	@echo "Installing/updating starship..."
 	@sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+	@cp -v ./starship/starship.toml ~/.config/starship.toml 
 
 sxhkd-config:
 	@echo "Deploying sxhkd config files..."
