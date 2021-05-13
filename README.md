@@ -31,6 +31,11 @@ In order to know the keyboard code for a specific key execute the following
 ```
 xev -event keyboard
 ```
+In order to know the name of a specific windows run the following command and 
+click on the proper window:
+```
+xprop | grep WM_CLASS
+```
 
 ## Install launcher and panel (and some other tweak tools)
 ```
@@ -86,7 +91,6 @@ gcloud auth login
 gcloud config set project $PROJECT_NAME
 ```
 
-
 ## Vim Plugins
 ```
 yay -S vim-plug python-pip ctags
@@ -100,7 +104,6 @@ nvim +GoInstallBinaries
 ```
 yay -S matcha-gtk-theme lxappearance-gtk3 flat-remix bibata-cursor-theme
 ```
-
 
 ## Polybar personalization
 If this is the first time and you want to restart config at .config/polybar

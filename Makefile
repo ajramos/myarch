@@ -35,11 +35,13 @@ gtk-3.0-config kitty-config lightdm-config lock-config \
 nvim-config pcmanfm-config pdf-default-config picom-config \
 polybar-config printer-config rofi-config sxhkd-config \
 tilix-config vim-theme-config wallpaper-config xorg-config \
-starship-config
+starship-config power-config
 
 aliases-config:
 	@echo "Deploying oh-my-zsh aliases files..."
-	@mkdir -pv ~/.oh-my-zsh/custom
+	@echo "OMZ should be previously installed at ~/.oh-my-zsh/custom"
+	@echo "Press ENTER for continue"
+	@read
 	@cp -vr oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom/
 
 bspwm-config:
@@ -79,15 +81,13 @@ kitty-config:
 	@cp -vr kitty/ ~/.config/
 
 lightdm-config:
-	@echo "Deploying window manager files..."
-	@sudo cp -v lightdm/lightdm.conf /etc/lightdm/
-	@sudo cp -v lightdm/slick-greeter.conf /etc/lightdm/
-
-lock-config:
-	@echo "Setting lock screen config..."
+	@echo "Deploying window manager files...(requires sudo)"
+	sudo cp -v lightdm/lightdm.conf /etc/lightdm/
+	sudo cp -v lightdm/slick-greeter.conf /etc/lightdm/
+	@read
 
 nvim-config:
-	@echo "Setting Neovim config..."
+	@echo "Setting Neovim config...(requires vim-plug package)"
 	@mkdir -pv ~/.config/nvim
 	@cp -vr nvim/ ~/.config/
 	@nvim +PlugInstall
@@ -112,10 +112,11 @@ polybar-config:
 	@cp -vr polybar/ ~/.config/
 
 printer-config:
-	@echo "Deploying printer config files..."
-	@sudo cp -v printer/nss-mdns/nsswitch.conf /etc/
-	@sudo cp -v cups/cups-files.conf /etc/cups/
-	@sudo chown root:cups /etc/cups/cups-files.conf
+	@echo "Deploying printer config files...(requires sudo)"
+	sudo cp -v printer/nss-mdns/nsswitch.conf /etc/
+	sudo cp -v cups/cups-files.conf /etc/cups/
+	sudo chown root:cups /etc/cups/cups-files.conf
+	@read
 
 rofi-config:
 	@echo "Deploying rofi config files..."
@@ -124,7 +125,9 @@ rofi-config:
 
 starship-config:
 	@echo "Installing/updating starship..."
-	@sh -c "$(curl -fsSL https://starship.rs/install.sh)"
+	@curl -fsSL "https://starship.rs/install.sh" > ./install.sh
+	@chmod 755 ./install.sh
+	@./install.sh
 	@cp -v ./starship/starship.toml ~/.config/starship.toml 
 
 sxhkd-config:
@@ -144,15 +147,17 @@ vim-theme-config:
 	@git clone https://github.com/dracula/vim.git dracula
 
 wallpaper-config:
-	@echo "Deploying wallpaper config files..."
+	@echo "Deploying wallpaper config files...(requires sudo)"
 	@mkdir -pv ~/Pictures
 	@cp -v wallpapers/city.jpg ~/Pictures/
-	@sudo cp -v wallpapers/city.jpg /usr/share/pixmaps/
 	@betterlockscreen -u ~/Pictures/city.jpg
+	sudo cp -v wallpapers/city.jpg /usr/share/pixmaps/
+	@read
 
 xorg-config:
-	@echo "Deploying XOrg config files..."
-	@sudo cp -v X11/xorg.conf.d/* /etc/X11/xorg.conf.d/
+	@echo "Deploying XOrg config files...(requires sudo)"
+	sudo cp -v X11/xorg.conf.d/* /etc/X11/xorg.conf.d/
+	@read
 
 backup-repo:
 	@echo "Backing files..."
@@ -161,21 +166,29 @@ backup-repo:
 	@git push origin main;
 
 locale-config:
+	@echo "Setting locale config...(requires sudo)"
 	sudo localectl set-keymap es
 	sudo localectl set-x11-keymap es
+	@read
 
+power-config:
+	@echo "Setting locale config...(requires sudo)"
+	sudo powertop --auto-tune
+	@read
 
 install-all: xserver video-driver wm audio launch-bar fm utils media gvfs \
-				screenlocker internet zsh cloud theme dm dev printer \
-				scanner sns
+screenlocker internet zsh cloud theme dm dev printer \
+scanner sns
 
 yay:
-	@sudo pacman -S --needed git base-devel
-	@cd /opt
-	@sudo git clone https:/aur.archlinux.org/yay.git
-	@sudo chown -R ajramos:ajramos ./yay
-	@cd yay
-	@makepkg -si
+	@echo "Installing pacman wrapper...(requires sudo)"
+	sudo pacman -S --needed git base-devel
+	cd /opt
+	sudo git clone https:/aur.archlinux.org/yay.git
+	sudo chown -R ajramos:ajramos ./yay
+	cd yay
+	makepkg -si
+	@read
 
 xserver:
 	@yay -S xorg-server xorg-xinit xterm xorg-xclock xorg-xrandr xorg-xprop xorg-apps
@@ -191,7 +204,7 @@ audio:
 
 launch-bar:
 	@yay -S picom feh nitrogen tilix polybar rofi dunst libnotify \
-	fontconfig siji xorg-xfd xorg-fonts-misc
+	fontconfig siji xorg-xfd xorg-fonts-misc ttf-iosevka-term noto-fonts-emoji
 
 fm:
 	@yay -S ranger nnn mc pcmanfm
@@ -210,7 +223,6 @@ gvfs:
 
 screenlocker:
 	@yay -S betterlockscreen imagemagick xorg-xdpyinfo
-	@betterlockscreen -u ~/Pictures/city.jpg
 
 internet:
 	@yay -S firefox elinks lynx curl chromium neomutt bmon wget \
@@ -218,7 +230,9 @@ internet:
 
 zsh:
 	@yay -S zsh
-	sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	@curl -fsSL "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh" > install.sh 
+	@chmod 755 ./install.sh 
+	@./install.sh
 
 cloud:
 	@yay -S google-cloud-sdk kubens kubectx k9s dive velero linkerd popeye helm
@@ -236,19 +250,23 @@ theme:
 	@yay -S matcha-gtk-theme lxappearance-gtk3 flat-remix bibata-cursor-theme
 
 dm:
+	@echo "Deploying desktop manager...(requires sudo)"
 	@yay -S lightdm lightdm-gtk-greeter lightdm-slick-greeter
-	@sudo systemctl enable lightdm
+	sudo systemctl enable lightdm
+	@read
 
 dev:
 	@yay -S github-cli code hugo go2 robo3t-bin postman-bin mongodb-compass \
-	portainer go-swagger
+portainer go-swagger
 
 printer:
+	@echo "Deploying printer config...(requires sudo)"
 	@yay -S cups cups-pdf foomatic-db-ppds avahi nss-mdns system-config-printer
-	@sudo systemctl enable cups
-	@sudo systemctl restart cups
-	@sudo systemctl status systemd-resolved #Check it is disabled
-	@sudo systemctl enable avahi-daemon
+	sudo systemctl enable cups
+	sudo systemctl restart cups
+	sudo systemctl status systemd-resolved #Check it is disabled
+	sudo systemctl enable avahi-daemon
+	@read
 
 scanner:
 	@yay -S sane-airscan simple-scan
