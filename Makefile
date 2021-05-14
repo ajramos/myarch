@@ -28,6 +28,7 @@ copy-config:
 	@cp -v /etc/lightdm/{lightdm.conf,slick-greeter.conf} ./lightdm/
 	@cp -vr ~/.local/share/fonts local/share/
 	@cp -v /etc/nsswitch.conf printer/nss-mdns/
+	@code --list-extensions | sed -e 's/^/code --install-extension /' > ./vscode/my_vscode_extensions.sh
 	@yay -Q > package_list.txt
 
 deploy: aliases-config bspwm-config dotfiles-config dunst-config fonts-config \
@@ -35,7 +36,7 @@ gtk-3.0-config kitty-config lightdm-config lock-config \
 nvim-config pcmanfm-config pdf-default-config picom-config \
 polybar-config printer-config rofi-config sxhkd-config \
 tilix-config vim-theme-config wallpaper-config xorg-config \
-starship-config power-config
+starship-config power-config vscode-config
 
 aliases-config:
 	@echo "Deploying oh-my-zsh aliases files..."
@@ -145,6 +146,10 @@ vim-theme-config:
 	@mkdir -p ~/.vim/pack/themes/start
 	@cd ~/.vim/pack/themes/start
 	@git clone https://github.com/dracula/vim.git dracula
+
+vscode-config:
+	@echo "installing VSCode extensions..."
+	@./vscode/my_vscode_extensions.sh
 
 wallpaper-config:
 	@echo "Deploying wallpaper config files...(requires sudo)"
