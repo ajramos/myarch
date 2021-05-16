@@ -24,7 +24,6 @@ copy-config:
 	@cp -vr ~/.config/pcmanfm .
 	@cp -v ~/.oh-my-zsh/custom/aliases.zsh oh-my-zsh/
 	@cp -v /etc/X11/xorg.conf.d/40-libinput.conf ./X11/xorg.conf.d/
-	@cp -v /etc/X11/xorg.conf.d/20-intel.conf ./X11/xorg.conf.d/
 	@cp -v /etc/lightdm/{lightdm.conf,slick-greeter.conf} ./lightdm/
 	@cp -vr ~/.local/share/fonts local/share/
 	@cp -v /etc/nsswitch.conf printer/nss-mdns/
@@ -199,7 +198,7 @@ xserver:
 	@yay -S xorg-server xorg-xinit xterm xorg-xclock xorg-xrandr xorg-xprop xorg-apps
 
 video-driver:
-	@yay -S xf86-video-intel
+	@yay -S nvidia nvidia-prime nvidia-xconfig nvidia-settings nvidia-dkms nvidia-utils
 
 wm:
 	@yay -S bspwm sxhkd 
