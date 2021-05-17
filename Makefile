@@ -24,7 +24,7 @@ copy-config:
 	@cp -vr ~/.config/pcmanfm .
 	@cp -v ~/.oh-my-zsh/custom/aliases.zsh oh-my-zsh/
 	@cp -v /etc/X11/xorg.conf.d/40-libinput.conf ./X11/xorg.conf.d/
-	@cp -v /etc/lightdm/{lightdm.conf,slick-greeter.conf} ./lightdm/
+	@cp -v /etc/lightdm/{lightdm.conf,slick-greeter.conf,display_setup.sh} ./lightdm/
 	@cp -vr ~/.local/share/fonts local/share/
 	@cp -v /etc/nsswitch.conf printer/nss-mdns/
 	@code --list-extensions | sed -e 's/^/code --install-extension /' > ./vscode/my_vscode_extensions.sh
@@ -70,6 +70,12 @@ fonts-config:
 	@mkdir -pv ~/.local/share/fonts
 	@cp -vr local/share/fonts ~/.local/share/
 
+grub-config:
+	@echo "Updating grub config..."
+	sudo cp -vi grub/grub /etc/default/grub
+	sudo grub-mkconfig -o /boot/grub/grub.cfg
+	sudo grub-mkconfig -o /boot/efi/EFI/arch/grub.cfg
+
 gtk-3.0-config:
 	@echo "Deploying gtk3 files..."
 	@mkdir -pv ~/.config/gtk-3.0
@@ -85,6 +91,21 @@ lightdm-config:
 	sudo cp -v lightdm/lightdm.conf /etc/lightdm/
 	sudo cp -v lightdm/slick-greeter.conf /etc/lightdm/
 	@read
+
+locale-config:
+	@echo "Setting locale config...(requires sudo)"
+	sudo localectl set-keymap es
+	sudo localectl set-x11-keymap es
+	@read
+
+nvidia-config:
+	@echo "Adding pacman hook to include driver and drm modeset every time the kernel updates"
+	sudo mkdir -pv /etc/pacman.d/hooks
+	sudo cp nvidia/nvidia.hook /etc/pacman.d/hooks/nvidia.hook
+	@echo "If Offloading Graphic Display NVIDIA -> Intel Display execute"
+	echo "sudo cp ./X11/xorg.conf /etc/X11/"
+	@echo "If Prime Render, use Intel mainly and execute prime-run command for NVIDIA"
+	echo "sudo cp ./X11/xorg.conf.d/nvidia.conf /etc/X11/xorg.conf.d/"
 
 nvim-config:
 	@echo "Setting Neovim config...(requires vim-plug package)"
@@ -110,6 +131,11 @@ polybar-config:
 	@echo "Deploying polybar config files..."
 	@mkdir -pv ~/.config/polybar
 	@cp -vr polybar/ ~/.config/
+
+power-config:
+	@echo "Setting locale config...(requires sudo)"
+	sudo powertop --auto-tune
+	@read
 
 printer-config:
 	@echo "Deploying printer config files...(requires sudo)"
@@ -169,17 +195,6 @@ backup-repo:
 	@git commit -m "New backup `date +'%Y-%m-%d %H:%M'`";
 	@git push origin main;
 
-locale-config:
-	@echo "Setting locale config...(requires sudo)"
-	sudo localectl set-keymap es
-	sudo localectl set-x11-keymap es
-	@read
-
-power-config:
-	@echo "Setting locale config...(requires sudo)"
-	sudo powertop --auto-tune
-	@read
-
 install-all: xserver video-driver wm audio launch-bar fm utils media gvfs \
 screenlocker internet zsh cloud theme dm dev printer \
 scanner sns
@@ -198,7 +213,7 @@ xserver:
 	@yay -S xorg-server xorg-xinit xterm xorg-xclock xorg-xrandr xorg-xprop xorg-apps
 
 video-driver:
-	@yay -S nvidia nvidia-prime nvidia-xconfig nvidia-settings nvidia-dkms nvidia-utils
+	@yay -S nvidia nvidia-prime nvidia-settings nvidia-dkms nvidia-utils mesa-demos
 
 wm:
 	@yay -S bspwm sxhkd 
@@ -217,7 +232,7 @@ utils:
 	@yay -S pywal tmux neovim which htop gotop powertop iotop usbutils jq yad \
 	xarchiver libinput-gestures clipmenu scrot xorg-xbacklight xfce4-power-manager \
 	pqiv gparted zathura zathura-cb zathura-djvu zathura-pdf-poppler zathura-ps \
-	remmina pdfmixtool onlyoffice
+	remmina pdfmixtool onlyoffice neofetch hwinfo
 
 media:
 	@yay -S gimp kazam handbrake vlc

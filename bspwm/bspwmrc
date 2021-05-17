@@ -10,7 +10,7 @@ $HOME/.config/polybar/launch.sh
 picom &
 
 # Initialize other utilities
-tilix &
+kitty &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
