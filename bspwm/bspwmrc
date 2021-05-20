@@ -4,9 +4,7 @@
 clipmenud &
 
 # Initialize Look and feel
-#xrandr -s 1280x800 &
 feh --bg-fill /home/ajramos/Pictures/city.jpg &
-$HOME/.config/polybar/launch.sh 
 picom &
 
 # Initialize other utilities
@@ -16,12 +14,13 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc config pointer_modifier mod1
 
-HAS_SECONDARY=$(xrandr | grep $SECONDARY_MONITOR | cut -f 2 -d ' ')
 PRIMARY_MONITOR=eDP-1-1
 SECONDARY_MONITOR=HDMI-1-1
 
+HAS_SECONDARY=$(xrandr | grep $SECONDARY_MONITOR | cut -f 2 -d ' ')
+
 DESKTOPS_SET_1="term browser code sns images"
-DESKTOPS_SET_2="misc0 misc1 misc2 misc3 misc4"
+DESKTOPS_SET_2="term1 browser1 code1 misc0 misc1"
 
 if [ "$HAS_SECONDARY" != "connected" ]; then
   bspc monitor $PRIMARY_MONITOR -d $DESKTOPS_SET_1 $DESKTOPS_SET_2
@@ -30,6 +29,8 @@ else
   bspc monitor $SECONDARY_MONITOR -d $DESKTOPS_SET_2
 fi
 
+#Initialize polybar after arranging icons
+$HOME/.config/polybar/launch.sh 
 
 bspc config border_width         2
 bspc config window_gap           8

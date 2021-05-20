@@ -15,7 +15,6 @@ code --install-extension hashicorp.terraform
 code --install-extension humao.rest-client
 code --install-extension ipedrazas.kubernetes-snippets
 code --install-extension jpoissonnier.vscode-styled-components
-code --install-extension kiteco.kite
 code --install-extension lonefy.vscode-JS-CSS-HTML-formatter
 code --install-extension marp-team.marp-vscode
 code --install-extension mhutchie.git-graph
@@ -26,6 +25,7 @@ code --install-extension ms-python.python
 code --install-extension ms-vscode.node-debug2
 code --install-extension rebornix.ruby
 code --install-extension redhat.java
+code --install-extension redhat.vscode-commons
 code --install-extension redhat.vscode-yaml
 code --install-extension ritwickdey.LiveServer
 code --install-extension vscjava.vscode-java-debug

@@ -7,7 +7,7 @@ HAS_SECONDARY=$(xrandr | grep $SECONDARY_MONITOR | cut -f 2 -d ' ')
 BSPC_MONITORS=$(bspc query -M | wc -l)
 
 DESKTOPS_SET_1="term browser code sns images"
-DESKTOPS_SET_2="misc0 misc1 misc2 misc3 misc4"
+DESKTOPS_SET_2="term1 browser1 code1 misc0 misc1"
 
 echo "HAS_SECONDARY=$HAS_SECONDARY"
 echo "BSPC_MONITORS=$BSPC_MONITORS"
