@@ -49,6 +49,12 @@ bspwm-config:
 	@mkdir -pv ~/.config/bspwm
 	@cp -vr bspwm/ ~/.config/
 
+cloud-config:
+	@echo "Execute de following commannd to get cloud env ready..."
+	echo "gcloud auth login"
+	echo "gcloud config set project $PROJECT_NAME"
+	echo "sudo usermod -a -G docker $USER"
+
 dotfiles-config:
 	@echo "Deploying dotfiles..."
 	@cp -v ./zsh/.zshrc ~
@@ -144,6 +150,10 @@ printer-config:
 	sudo chown root:cups /etc/cups/cups-files.conf
 	@read
 
+pulseaudio-config:
+	@echo "Activation of the echo cancellation filter"
+	echo "load-module module-echo-cancel" | sudo tee -a /etc/pulse/default.pa
+
 rofi-config:
 	@echo "Deploying rofi config files..."
 	@mkdir -pv ~/.config/rofi
@@ -154,7 +164,7 @@ starship-config:
 	@curl -fsSL "https://starship.rs/install.sh" > ./install.sh
 	@chmod 755 ./install.sh
 	@./install.sh
-	@cp -v ./starship/starship.toml ~/.config/starship.toml 
+	@cp -v ./starship/starship.toml ~/.config/starship.toml
 
 sxhkd-config:
 	@echo "Deploying sxhkd config files..."
@@ -215,11 +225,14 @@ xserver:
 video-driver:
 	@yay -S nvidia nvidia-prime nvidia-settings nvidia-dkms nvidia-utils mesa-demos
 
+bluetooth:
+	@yay -S bluez bluez-utils pulseaudio-bluetooth
+
 wm:
 	@yay -S bspwm sxhkd 
 
 audio:
-	@yay -S alsa-utils pulseaudio pulseaudio-alsa
+	@yay -S alsa-utils pulseaudio pulseaudio-alsa paprefs pavucontrol
 
 launch-bar:
 	@yay -S picom feh nitrogen tilix polybar rofi dunst libnotify \
@@ -232,7 +245,7 @@ utils:
 	@yay -S pywal tmux neovim which htop gotop powertop iotop usbutils jq yad \
 	xarchiver libinput-gestures clipmenu scrot xorg-xbacklight xfce4-power-manager \
 	pqiv gparted zathura zathura-cb zathura-djvu zathura-pdf-poppler zathura-ps \
-	remmina pdfmixtool onlyoffice neofetch hwinfo
+	remmina pdfmixtool onlyoffice neofetch hwinfo xorg-xclipboard xclip dos2unix
 
 media:
 	@yay -S gimp kazam handbrake vlc
@@ -291,4 +304,7 @@ scanner:
 	@yay -S sane-airscan simple-scan
 
 sns:
-	@yay -S slack-desktop telegram-desktop cawbird
+	@yay -S slack-desktop telegram-desktop cawbird skypeforlinux-stable-bin
+
+bluetooth-config:
+	sudo systemctl start bluetooth
