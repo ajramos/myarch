@@ -1,0 +1,1 @@
+/etc/lightdm/display_setup.sh

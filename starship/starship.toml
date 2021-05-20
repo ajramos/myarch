@@ -8,5 +8,4 @@ disabled = false
 
 [kubernetes.context_aliases]
 #"cluster_name" = "alias"
-"cluster_name" = "alias"
 

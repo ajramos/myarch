@@ -16,7 +16,20 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 
 bspc config pointer_modifier mod1
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+HAS_SECONDARY=$(xrandr | grep $SECONDARY_MONITOR | cut -f 2 -d ' ')
+PRIMARY_MONITOR=eDP-1-1
+SECONDARY_MONITOR=HDMI-1-1
+
+DESKTOPS_SET_1="term browser code sns images"
+DESKTOPS_SET_2="misc0 misc1 misc2 misc3 misc4"
+
+if [ "$HAS_SECONDARY" != "connected" ]; then
+  bspc monitor $PRIMARY_MONITOR -d $DESKTOPS_SET_1 $DESKTOPS_SET_2
+else
+  bspc monitor $PRIMARY_MONITOR -d $DESKTOPS_SET_1 
+  bspc monitor $SECONDARY_MONITOR -d $DESKTOPS_SET_2
+fi
+
 
 bspc config border_width         2
 bspc config window_gap           8
@@ -53,17 +66,16 @@ bspc desktop ^6 -1 monocle
 bspc desktop ^9 -1 monocle
 bspc desktop ^10 -1 monocle
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a firefox desktop='^2'
-bspc rule -a code-oss desktop='^3'
-bspc rule -a robo3t desktop='^4'
-bspc rule -a TelegramDesktop desktop='^5'
-bspc rule -a Cawbird desktop='^5'
-bspc rule -a Slack desktop='^6'
-bspc rule -a Gimp-2.10 desktop='^7'
+bspc rule -a firefox desktop='browser'
+bspc rule -a code-oss desktop='code'
+bspc rule -a robo3t desktop='code'
+bspc rule -a TelegramDesktop desktop='sns'
+bspc rule -a Cawbird desktop='sns'
+bspc rule -a Slack desktop='sns'
+bspc rule -a Gimp-2.10 desktop='images' state=floating follow=on
 #bspc rule -a mplayer2 state=floating
 #bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
+#bspc rule -a Screenkey manage=off
 
 # set Desktop 7 to start with floating windows
 FLOATING_DEKSTOP_ID=$(bspc query -D -d '^7')
