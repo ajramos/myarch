@@ -88,7 +88,7 @@ mkfs.ext4 -L root /dev/mapper/luks_root
 Be careful to execute the commands in the proper order so that directories
 are created in the proper partitions
 
-Arch Installation ```bash
+```bash
 mount /dev/mapper/luks_root /mnt
 mkdir /mnt/boot
 mount /dev/nvme0n1p2 /mnt/boot
@@ -126,14 +126,13 @@ intel-ucode udev
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
-### 10. Customize your installation
-
-#### Ch-root in your new system:
+### 10. Ch-root in your new system:
 
 ```bash
 arch-chroot /mnt
 ```
-#### Add a new user
+
+### 11. Add a new user
 
 Create a new user, this user will be the one to operate the system (via sudo) as 
 I am not creating using the root user
@@ -142,7 +141,7 @@ useradd -m -s /bin/bash your_user_name
 passwd your_user_name
 ```
 
-#### Setup sudo
+### 12. Setup sudo
 
 Execute the following line to edit the config with vim:
 ```bash
@@ -158,7 +157,7 @@ Config your default visudo editor by adding the following line to the sudo confi
 Defaults editor=/usr/bin/nvim
 ```
 
-#### Setup locale configuration
+### 13. Setup locale configuration
 - Change Region by a valid one (e.g. Europe) as well as the City (e.g. Madrid)
 ```bash
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
@@ -176,7 +175,7 @@ echo "LANG=es_ES.UTF-8" > /etc/locale.conf
 echo "KEYMAP=es" > /etc/vconsole.conf
 ```
 
-#### Setup network
+### 14. Setup network
 - Set your hostname
 ```bash
 echo "your-host-name" > /etc/hostname
@@ -188,7 +187,7 @@ echo "your-host-name" > /etc/hostname
 ::1 localhost
 127.0.1.1 your-host-name.localdomain your-host-name
 ```
-#### Setup grub
+### 15. Setup grub
 
 - Modify the following line in file /etc/default/grub so it looks like the following:
 ```bash
@@ -205,21 +204,21 @@ Then execute the following command to re-create the kernel config:
 mkinitcpio -p linux
 ```
 
-#### Install and config grub
+### 16. Install and config grub
 ```bash
 grub-install --boot-directory=/boot --efi-directory=/boot/efi /dev/nvme0n1p2
 grub-mkconfig -o /boot/grub/grub.cfg
 grub-mkconfig -o /boot/efi/EFI/arch/grub.cfg
 ```
 
-#### Reboot
+### 17. Reboot
 You are ready to go, exit from the chroot and reboot:
 ```bash
 exit 
 reboot
 ```
 
-### 11. First boot
+### 18. First boot
 
 You will need to introduce the password for the encrypted partition (the one in the step 4. above)
 
