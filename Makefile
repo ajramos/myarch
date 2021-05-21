@@ -226,7 +226,7 @@ video-driver:
 	@yay -S nvidia nvidia-prime nvidia-settings nvidia-dkms nvidia-utils mesa-demos
 
 bluetooth:
-	@yay -S bluez bluez-utils pulseaudio-bluetooth
+	@yay -S bluez bluez-utils pulseaudio-bluetooth blueman
 
 wm:
 	@yay -S bspwm sxhkd 

@@ -1,8 +1,8 @@
 # Archlinux at Slimbook
 This document constitutes a compilation of my learnings during Arch Linux
-Installation &amp; Configuration in my (Slimbook)[https://www.slimbook.com] ProX14.
+Installation &amp; Configuration in my [Slimbook](https://www.slimbook.com) ProX14.
 
-Most of the content has been extracted from the (Arch Wiki)[https://wiki.archlinux.org/]
+Most of the content has been extracted from the [Arch Wiki](https://wiki.archlinux.org/)
 which is the best linux learning tool ever.
 
 The document is divided in two parts:
