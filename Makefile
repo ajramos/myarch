@@ -44,6 +44,9 @@ aliases-config:
 	@read
 	@cp -vr oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom/
 
+bluetooth-config:
+	sudo systemctl start bluetooth
+
 bspwm-config:
 	@echo "Deploying bspwm config files..."
 	@mkdir -pv ~/.config/bspwm
@@ -245,7 +248,8 @@ utils:
 	@yay -S pywal tmux neovim which htop gotop powertop iotop usbutils jq yad \
 	xarchiver libinput-gestures clipmenu scrot xorg-xbacklight xfce4-power-manager \
 	pqiv gparted zathura zathura-cb zathura-djvu zathura-pdf-poppler zathura-ps \
-	remmina pdfmixtool onlyoffice neofetch hwinfo xorg-xclipboard xclip dos2unix
+	remmina pdfmixtool onlyoffice neofetch hwinfo xorg-xclipboard xclip dos2unix \
+	inxi
 
 media:
 	@yay -S gimp kazam handbrake vlc
@@ -306,5 +310,3 @@ scanner:
 sns:
 	@yay -S slack-desktop telegram-desktop cawbird skypeforlinux-stable-bin
 
-bluetooth-config:
-	sudo systemctl start bluetooth

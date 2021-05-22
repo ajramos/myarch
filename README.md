@@ -1,6 +1,32 @@
 # Archlinux at Slimbook
+
 This document constitutes a compilation of my learnings during Arch Linux
 Installation &amp; Configuration in my [Slimbook](https://www.slimbook.com) ProX14.
+
+Following you can find the specs of the setup (excerpt from inxi command):
+```bash
+Machine:
+  Type: Laptop System: SLIMBOOK product: PROX14-10 
+Memory:
+  RAM: total: 31.22 GiB used: 883.6 MiB (2.8%) 
+CPU:
+  Info: Quad Core model: Intel Core i7-10510U bits: 64 type: MT MCP arch: Kaby Lake 
+Graphics:
+  Device-1: Intel UHD Graphics 
+  Device-2: NVIDIA GP108M [GeForce MX250] 
+  Device-3: Chicony HD Webcam type: USB 
+Audio:
+  Device-1: Intel Comet Lake PCH-LP cAVS vendor: Tongfang Hongkong Limited 
+Network:
+  Device-1: Intel Comet Lake PCH-LP CNVi WiFi
+  Device-2: Realtek RTL8111/8168/8411 PCI Express Gigabit Ethernet 
+Bluetooth:
+  Device-1: Intel Bluetooth 9460/9560 Jefferson Peak (JfP) 
+Drives:
+  ID-1: Samsung model: SSD 970 EVO Plus 500GB 
+Battery:
+  ID-1: 46.7 Wh
+```
 
 Most of the content has been extracted from the [Arch Wiki](https://wiki.archlinux.org/)
 which is the best linux learning tool ever.
@@ -13,44 +39,45 @@ The starting point was a single boot with Slimbook OS (modified Ubuntu 20.04)
 preinstalled.
 
 **DISCLAIMER**: I am not a linux expert, with this guide I am trying to put together all
-the learnings I made a long the way, hoping to save some time in the future not only for
-me in a pontential reinstallation situation but for other people who are in the same 
+the learnings I made a long the way, I hope to save some time in the future not only for
+me in a potential reinstallation situation but for other people who are in the same 
 situation as me which basically it is a strong desire for becoming knowledgeable in 
 the linux world, I adjusted this setup balancing my taste, time and comprenhension of the
 subsystems and modules, probably there are better ways to do these configurations, go out 
 there and find yours because that is the beauty of the open source software.
 
+**Good Luck!**
+
 ![The current look of my Slimbook](assets/screenshot.png "My beautiful arch")
 
-
-Good Luck!
-
-## 1. Installation of a plain vanilla Arch Linux
+# 1. Installation of a plain vanilla Arch Linux
 
 This procedure includes the root partition encryption (using LUKS without LVM)
 
-### 0. Fetch the latest Arch linux iso to a USB flash memory
+## 0. Fetch the latest Arch linux iso to a USB flash memory
+
 In linux you can use the following:
 ```bash
 dd if=/path/to/iso of=/dev/sdX
 ```
 where sdX is the device representing your usb key.
 
+## 1. Load Spanish keyboard layout, connect to internet and adjust clock:
 
-### 1. Load Spanish keyboard layout, connect to internet and adjust clock:
 ```bash
 loadkeys es
 iwctl station wlan0 connect "MiWifi"
 timedatectl set-ntp true
 ```
 
-### 2. Load additional kernel modules for encryption
+## 2. Load additional kernel modules for encryption
+
 ```bash
 modprobe dm-crypt
 modprobe dm-mod
 ```
 
-### 3. Create the partitions, we are going to need three of them:
+## 3. Create the partitions, we are going to need three of them:
 
 | Partition | Size | Type | Mount point | Comments |
 | --------- | ---- | ---- | ----------- | -------- |
@@ -68,7 +95,8 @@ If everything goes fine you should see something like this:
 
 ![Partitions](assets/partitions.png "Partitions")
 
-### 4. Encrypt root partition 
+## 4. Encrypt root partition 
+
 You will be requested to confirm with a YES (in uppercase) and then set a password
 
 ```bash
@@ -76,14 +104,15 @@ cryptsetup luksFormat -v -s 512 -h sha512 /dev/nvme0n1p3
 cryptsetup open /dev/nvme0n1p3 luks_root
 ```
 
-### 5. Format partitions
+## 5. Format partitions
+
 ```bash
 mkfs.vfat -n “EFI System” /dev/nvme0n1p1
 mkfs.ext4 -L boot /dev/nvme0n1p2
 mkfs.ext4 -L root /dev/mapper/luks_root
 ```
 
-### 6. Mount partitions
+## 6. Mount partitions
 
 Be careful to execute the commands in the proper order so that directories
 are created in the proper partitions
@@ -96,7 +125,7 @@ mkdir /mnt/boot/efi
 mount /dev/nvme0n1p1 /mnt/boot/efi
 ```
 
-### 7. Swap file
+## 7. Swap file
 
 Only if you are planning to hibernate the laptop to the hard drive.
 
@@ -110,7 +139,7 @@ swapon swap
 chmod 0600 swap
 ```
 
-### 8. Install base system and some minor utils
+## 8. Install base system and some minor utils
 
 I am using neovim and Network Manager but feel free to install some other
 editor or network utilities. 
@@ -121,27 +150,29 @@ pacstrap -i /mnt base base-devel efibootmgr grub linux linux-firmware \
 intel-ucode udev
 ```
 
-### 9. Generate fstab file
+## 9. Generate fstab file
+
 ```bash
 genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
-### 10. Ch-root in your new system:
+## 10. Ch-root in your new system:
 
 ```bash
 arch-chroot /mnt
 ```
 
-### 11. Add a new user
+## 11. Add a new user
 
 Create a new user, this user will be the one to operate the system (via sudo) as 
-I am not creating using the root user
+I am not using the root user
+
 ```bash
 useradd -m -s /bin/bash your_user_name
 passwd your_user_name
 ```
 
-### 12. Setup sudo
+## 12. Setup sudo
 
 Execute the following line to edit the config with vim:
 ```bash
@@ -152,12 +183,13 @@ Add the following line after the "root" user one
 ```bash
 ajramos ALL=(ALL) ALL
 ```
+
 Config your default visudo editor by adding the following line to the sudo config file:
 ```bash
 Defaults editor=/usr/bin/nvim
 ```
 
-### 13. Setup locale configuration
+## 13. Setup locale configuration
 - Change Region by a valid one (e.g. Europe) as well as the City (e.g. Madrid)
 ```bash
 ln -sf /usr/share/zoneinfo/Region/City /etc/localtime
@@ -175,7 +207,7 @@ echo "LANG=es_ES.UTF-8" > /etc/locale.conf
 echo "KEYMAP=es" > /etc/vconsole.conf
 ```
 
-### 14. Setup network
+## 14. Setup network
 - Set your hostname
 ```bash
 echo "your-host-name" > /etc/hostname
@@ -187,7 +219,7 @@ echo "your-host-name" > /etc/hostname
 ::1 localhost
 127.0.1.1 your-host-name.localdomain your-host-name
 ```
-### 15. Setup grub
+## 15. Setup grub
 
 - Modify the following line in file /etc/default/grub so it looks like the following:
 ```bash
@@ -204,25 +236,25 @@ Then execute the following command to re-create the kernel config:
 mkinitcpio -p linux
 ```
 
-### 16. Install and config grub
+## 16. Install and config grub
 ```bash
 grub-install --boot-directory=/boot --efi-directory=/boot/efi /dev/nvme0n1p2
 grub-mkconfig -o /boot/grub/grub.cfg
 grub-mkconfig -o /boot/efi/EFI/arch/grub.cfg
 ```
 
-### 17. Reboot
+## 17. Reboot
 You are ready to go, exit from the chroot and reboot:
 ```bash
 exit 
 reboot
 ```
 
-### 18. First boot
+## 18. First boot
 
 You will need to introduce the password for the encrypted partition (the one in the step 4. above)
 
-Introduce your users credentials
+Introduce your user's credentials
 
 You can get online with the Network Manager, either by using nmtui or nmcli using, you should start it first
 
@@ -237,151 +269,80 @@ After that enable NetworkManager
 sudo systemctl enable NetworkManager
 ```
 
-# 2. Customization (TODO)
+# 2. Configuration and customization  
 
-After a plain arch installation install the following:
+After the arch installation it is time to start customizing the system for your
+taste.
 
-## Install yay
-```
-sudo pacman --needed git base-devel
-cd /opt
-sudo git clone https:/aur.archlinux.org/yay-git.git
-sudo chown -R ajramos:ajramos ./yay-git
-cd yay-git 
-makepkg -si
-```
+The selection of the tools has been very vim-oriented and trying to be as much
+agnostic to any major Desktop Environment (such us Gnome, KDE, etc.)
 
-## Install xserver
-```
-yay -S xorg-server xorg-xinit xterm xorg-xclock xrandr xorg-xprop xorg-apps
-```
+In my case, I performed the customization in the following domains:
 
-## Install graphic card drivers (watch arch linux Xorg installation guide)
-```
-yay -S xf86-video-intel
-```
+- Installation of a **pacman wrapper** to be able to handle easily official packages as
+well the ones included in AUR. In my case I chose yay because its simplicity and
+because it's been developed in Golang. See installation details in yay target within
+the Makefile.
 
-## Install bspwm and sxhkd
-```
-yay -S bspwm sxhkd 
-```
-In order to know the keyboard code for a specific key execute the following
-```
-xev -event keyboard
-```
-In order to know the name of a specific windows run the following command and 
-click on the proper window:
-```
-xprop | grep WM_CLASS
-```
+- Installation of the **graphical environment** and some related utilities. My stack
+in this case is:
+  - XServer
+  - Nvidia proprietary driver and its utilities
+  - Light Desktop Manager with Slick Greeter
+  - Bspwm as a tiled window manager
+  - Sxhkd as a key stroke handler
+  - Rofi as a launcher
+  - Polybar as a status bar
+  - Dunst as a notification manager
+  - Picom as composer
+  - Pulseaudio as the audio system
+  - Betterlockscreen as screenlocker
+  - Blueman, and NetworkManager for handling BT and Network respectively
 
-## Install launcher and panel (and some other tweak tools)
-```
-yay -S picom feh nitrogen tilix polybar rofi dunst libnotify
-```
+- For the **daily task activities** I am using:
+  - Kitty as terminal, plus Oh-my-zsh and Startship as enhancements
+  - Neovim as editor with a bunch of plugins such as (airline, vim-go, and others)
+  - pqiv as image viewer
+  - ranger and pcmanfm for file management
+  - zathura as pdf reader
+  - scrot as screenshooter
+  - GVFS for Virtual filesystem (enables Trash bin, remote filesystem access, etc.)
+  - CUPS for the printer config
+  - Sane for the scanner config
+  - Tmux as screen multiplexer
+  - Only office as ofimatics suite
+  - Firefox as main browser, although I have also installed Chromium
 
-## Install fonts (for polybar) 
-```
-yay -S fontconfig siji xorg-xfg xorg-fonts-misc ttf-iosevka-term noto-fonts-emoji 
-```
+- For the **theme** I am using:
+  - GTK Theme: Matcha
+  - Icons: Flat remix
+  - Cursor: Bibata
 
-## Install other utils
-```
-yay -S ranger nnn mc pywal pcmanfm tmux neovim which htop gotop powertop
-yay -S usbutils iotop xarchiver jq yad libinput-gestures gimp
-yay -S clipmenu scrot xbacklight xfce4-power-manager pqiv gparted
-yay -S zathura zathura-cb zathura-djvu zathura-pdf-poppler \
-zathura-ps vlc
-yay -S remmina kazam handbrake notion-app pdfmixtool onlyoffice transmission-gtk
-```
+- **Development tools** (other than nvim): Visual Studio Code, Robo3T, Postman, MongoDB Compass,
+Portainer, Go-Swagger, Go, Github CLI and git.
 
-## Install Trash can compatibility and device,network and google automount
-```
-yay -S udisks2 gvfs gvfs-smb 
-```
+- **Cloud environment** and k8s toolkit: Google cloud SDK, Kubectx, kubens, dive, popeye
+helm, linkerd, velero, and the beautiful k9s
 
-## Install screensaver & screen locker
-```
-yay -S betterlockscreen i3-lock imagemagick xorg-xdpyinfo
-betterlockscreen -u ~/Pictures/city.jpg
-```
+- For **media** utilities: gimp, kazam, handbrake, vlc
 
-## Install internet utils
-```
-yay -S firefox elinks lynx curl chromium neomutt bmon wget nm-connection-editor
-yay -S youtube-dl
-```
+- For **social** interaction: Slack, Cawbird (twitter) and Telegram
 
-## Install audio system
-```
-yay -S alsa-utils pulseaudio pulseaudio-alsa
-```
+All the installation and configuration of these utilities can be seen in the proper targets
+in the Makefile, usually there is one target for installation and another one (*-config)
+for configuration.
 
-## Install oh-my-zsh
-```
-yay -S zsh
-sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-## Install cloud utils
-```
-yay -S google-cloud-sdk kubens kubectx k9s dive velero linkerd popeye
-gcloud auth login
-gcloud config set project $PROJECT_NAME
-```
+Last but not the least, I also include within this repository my dotfiles for the
+fine tuning of those tools as I have it today.
 
-## Vim Plugins
-```
-yay -S vim-plug python-pip ctags
-touch $HOME/.vim/plugins.vim
-python3 -m pip install --user --upgrade pynvim
-nvim +PlugInstall
-nvim +GoInstallBinaries
-```
+Hope you find this information useful.
 
-## Look & Feel customization
-```
-yay -S matcha-gtk-theme lxappearance-gtk3 flat-remix bibata-cursor-theme
-```
+**Happy hacking!**
 
-## Polybar personalization
-If this is the first time and you want to restart config at .config/polybar
-otherwise, it is not required.
 
-Also be aware you probable will need to check the modules initialization,
-for example for battery, brightness, and so on, please follow instructions
-within the config files. 
-```
-git clone --depth=1 https://github.com/adi1090x/polybar-themes.git
-cd polybar-themes
-chmod +x setup.sh
-./setup.sh
-```
 
-## Rofi customization
-```
-git clone --depth 1 https://github.com/adi1090x/rofi.git
-cd rofi
-chmod +x setup.sh
-./setup.sh
-echo "export PATH=$HOME/.config/rofi/bin:$PATH" >> ~/.zshrc
-```
+*NOTES: about install printer service and drivers*
 
-## Display Manager
-```
-yay -S lightdm lightdm-gtk-greeter lightdm-slick-greeter
-sudo systemctl enable lightdm
-```
-
-## Development tools
-```
-yay -S github-cli code hugo go2 robo3t-bin postman-bin mongodb-compass
-portainer go-swagger
-```
-
-## Install Printer service and drivers
-```
-yay -S cups cups-pdf foomatic-db-ppds avahi nss-mdns system-config-printer
-```
 After install cups-pdf it must be enabled with, the restart will allow to access
 to the [CUPS Web Admin](http://localhost:631)
 ```
@@ -409,22 +370,26 @@ Add your user group to the statement "SystemGroup" in the file
 SystemGroup sys root wheel ajramos
 ```
 
-## Install Scanner
-```
-yay -S sane-airscan simple-scan
-```
-
-## Install Collaboration and SNS
-```
-yay -S slack-desktop telegram-desktop cawbird
-```
-
-## Prompt customization with starship
-```
-sh -c "$(curl -fsSL https://starship.rs/install.sh)"
-```
-
-## References
+# References
 
 All this installation and setup couldn't have been possible without the help 
 of the following links and guides, my biggest thanks for them.
+
+- [0] [Arch Installation Guide](https://wiki.archlinux.org/title/Installation_guide)
+- [1] [Arch Install With Full Disk Encryption](https://medium.com/hacker-toolbelt/arch-install-with-full-disk-encryption-6192e9635281)
+- [2] [NVIDIA in Arch Linux](https://wiki.archlinux.org/title/NVIDIA)
+- [3] [NVIDIA Optimus ](https://wiki.archlinux.org/title/NVIDIA_Optimus)
+- [4] [NVIDIA Prime render](https://wiki.archlinux.org/title/PRIME#PRIME_render_offload)
+- [5] [PRIME Render Offload](https://download.nvidia.com/XFree86/Linux-x86_64/440.44/README/primerenderoffload.html)
+- [6] [Offloading Graphics Display with RandR 1.4](https://download.nvidia.com/XFree86/Linux-x86_64/440.44/README/randr14.html)
+- [7] [UDev](https://wiki.archlinux.org/title/Udev)
+- [8] [Bspwm](https://wiki.archlinux.org/title/Bspwm)
+- [9] [Printer Config - CUPS](https://wiki.archlinux.org/title/CUPS)
+- [10] [Scanner Config - SANE](https://wiki.archlinux.org/title/SANE)
+- [11] [PCManFM](https://wiki.archlinux.org/title/PCManFM)
+- [12] [File Manager Utility](https://wiki.archlinux.org/title/File_manager_functionality)
+- [13] [Ranger User Guide](https://github.com/ranger/ranger/wiki/Official-user-guide)
+- [14] [Polybar Themes](https://github.com/adi1090x/polybar-themes)
+- [15] [Dunst](https://wiki.archlinux.org/title/Dunst)
+- [16] [Dunst Module for Polybar](https://github.com/JeanEdouardKevin/dunst-polybar)
+- [17] [Samba](https://wiki.archlinux.org/title/Samba#Accessing_shares)
