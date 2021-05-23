@@ -800,6 +800,7 @@ webrtc-audio-processing 0.3.1-2
 wget 1.21.1-1
 which 2.21-5
 wildmidi 0.4.4-1
+wmname 0.1-5
 woff2 1.0.2-3
 wpa_supplicant 2:2.9-8
 wpebackend-fdo 1.9.92-1
