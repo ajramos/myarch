@@ -60,7 +60,7 @@ code 1.56.2-2
 colord 1.4.5-1
 colord-sane 1.4.5-1
 confuse 3.3-3
-containerd 1.5.1-1
+containerd 1.5.2-1
 coreutils 8.32-1
 cryptsetup 2.3.5-4
 ctags 1:r20210106+g08b1c490-1
@@ -139,7 +139,7 @@ giflib 5.2.1-2
 gimp 2.10.24-4
 girara 0.3.5-1
 git 2.31.1-1
-github-cli 1.10.1-1
+github-cli 1.10.3-1
 glew 2.2.0-2
 glib-networking 1:2.68.1-1
 glib2 2.68.2-1
@@ -237,7 +237,7 @@ js78 78.10.1-1
 json-c 0.15-1
 json-glib 1.6.2-1
 jsoncpp 1.9.4-1
-k9s 0.24.9-1
+k9s 0.24.10-1
 kazam 1.4.5-9
 kbd 2.4.0-2
 keyutils 1.6.3-1
@@ -351,7 +351,7 @@ libluv 1.41.0-1
 libmad 0.15.1b-9
 libmanette 0.2.6-2
 libmatroska 1.6.3-1
-libmfx 21.1.3-1
+libmfx 21.1.3-2
 libmicrodns 0.2.0-1
 libmicrohttpd 0.9.73-1
 libmm-glib 1.16.4-1
@@ -364,7 +364,7 @@ libmpcdec 1:0.1+r475-3
 libmpdclient 2.19-3
 libmpeg2 0.5.1-7
 libmypaint 1.6.1-1
-libndp 1.7-2
+libndp 1.8-1
 libnetfilter_conntrack 1.0.8-1
 libnewt 0.52.21-5
 libnfnetlink 1.0.1-4
@@ -414,7 +414,7 @@ libspiro 1:20200505-2
 libsrtp 1:2.3.0-1
 libssh 0.9.5-1
 libssh2 1.9.0-3
-libsynctex 2020.54586-14
+libsynctex 2021.58686-3
 libtar 1.2.20-5
 libtasn1 4.17.0-1
 libteam 1.31-3
@@ -489,7 +489,7 @@ lightdm-gtk-greeter 1:2.0.8-1
 lightdm-slick-greeter 1.5.2-1
 lilv 0.24.12-1
 linkerd 2.10.1-0
-linux 5.12.5.arch1-1
+linux 5.12.6.arch1-1
 linux-api-headers 5.12.3-1
 linux-firmware 20210511.7685cf4-1
 llvm-libs 11.1.0-1
@@ -505,7 +505,7 @@ lvm2 2.03.12-1
 lxappearance-gtk3 0.6.3-4
 lxmenu-data 0.1.5-3
 lynx 2.8.9-3
-lz4 1:1.9.3-1
+lz4 1:1.9.3-2
 lzo 2.10-3
 m4 1.4.18-3
 mailcap 2.1.53-1
@@ -550,7 +550,7 @@ nspr 4.30-1
 nss 3.65-1
 nss-mdns 0.14.1-3
 numactl 2.0.14-1
-nvidia 465.31-3
+nvidia 465.31-4
 nvidia-dkms 465.31-1
 nvidia-prime 1.0-4
 nvidia-settings 465.27-1
@@ -622,7 +622,7 @@ poppler-glib 21.05.0-1
 popt 1.18-1
 portainer-bin 2.1.1-2
 portaudio 1:19.7.0-1
-postman-bin 8.5.0-1
+postman-bin 8.5.1-1
 powertop 2.14-1
 pqiv 2.12-2
 procps-ng 3.3.17-1
@@ -690,7 +690,7 @@ python-urllib3 1.26.4-1
 python-webencodings 0.5.1-6
 pywal-git 3.3.0.r128.g4997a49-1
 qpdf 10.3.2-1
-qt5-base 5.15.2+kde+r194-1
+qt5-base 5.15.2+kde+r195-1
 qt5-declarative 5.15.2+kde+r24-1
 qt5-imageformats 5.15.2-1
 qt5-svg 5.15.2+kde+r7-1
@@ -800,6 +800,7 @@ webrtc-audio-processing 0.3.1-2
 wget 1.21.1-1
 which 2.21-5
 wildmidi 0.4.4-1
+wmctrl 1.07-6
 wmname 0.1-5
 woff2 1.0.2-3
 wpa_supplicant 2:2.9-8

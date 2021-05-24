@@ -1,8 +1,8 @@
 #!/bin/sh
 xrandr --setprovideroutputsource modesetting NVIDIA-0
 
-PRIMARY_MONITOR=eDP-1-1
-SECONDARY_MONITOR=HDMI-1-1
+PRIMARY_MONITOR=$(xrandr | grep " connected " | grep eDP |cut -f 1 -d ' ')
+SECONDARY_MONITOR=$(xrandr | grep " connected " | grep HDMI |cut -f 1 -d ' ')
 
 HAS_SECONDARY=$(xrandr | grep $SECONDARY_MONITOR | cut -f 2 -d ' ')
 
