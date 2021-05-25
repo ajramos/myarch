@@ -4,11 +4,12 @@
 clipmenud &
 
 # Initialize Look and feel
-feh --bg-fill /home/ajramos/Pictures/city.jpg &
+feh --bg-fill /home/ajramos/Pictures/japanese.jpg &
 picom &
 
 # Initialize other utilities
 kitty &
+clight &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 

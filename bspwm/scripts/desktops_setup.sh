@@ -50,4 +50,5 @@ echo "Desktops in the monitor PRIMARY"
 bspc query -T -m $PRIMARY_MONITOR | jq -r '[.desktops[] | {desktop: .name}]'
 echo "Desktops in the monitor SECONDARY"
 bspc query -T -m $SECONDARY_MONITOR | jq -r '[.desktops[] | {desktop: .name}]'
-feh --bg-fill /home/ajramos/Pictures/city.jpg &
+
+feh --bg-fill /home/ajramos/Pictures/japanese.jpg &

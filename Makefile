@@ -44,6 +44,10 @@ aliases-config:
 	@read
 	@cp -vr oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom/
 
+backlight-config:
+	@echo "Setting backlight daemon (requires sudo)..."
+	sudo systemctl enable clightd.service
+
 bluetooth-config:
 	sudo systemctl start bluetooth
 
@@ -192,9 +196,9 @@ vscode-config:
 wallpaper-config:
 	@echo "Deploying wallpaper config files...(requires sudo)"
 	@mkdir -pv ~/Pictures
-	@cp -v wallpapers/city.jpg ~/Pictures/
-	@betterlockscreen -u ~/Pictures/city.jpg
-	sudo cp -v wallpapers/city.jpg /usr/share/pixmaps/
+	@cp -v wallpapers/{japanese.jpg,city.jpg,wall-e.jpg} ~/Pictures/
+	@betterlockscreen -u ~/Pictures/wall-e.jpg
+	sudo cp -v wallpapers/wall-e.jpg /usr/share/pixmaps/
 	@read
 
 xorg-config:
@@ -249,7 +253,7 @@ utils:
 	xarchiver libinput-gestures clipmenu scrot xorg-xbacklight xfce4-power-manager \
 	pqiv gparted zathura zathura-cb zathura-djvu zathura-pdf-poppler zathura-ps \
 	remmina pdfmixtool onlyoffice neofetch hwinfo xorg-xclipboard xclip dos2unix \
-	inxi
+	inxi clight
 
 media:
 	@yay -S gimp kazam handbrake vlc
