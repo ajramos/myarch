@@ -21,8 +21,11 @@ Plug 'stephpy/vim-yaml', {'for': 'yaml'}
 call plug#end()
 
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#go#gocode_binary = '$HOME/go/bin/gocode'
 
 " General Settings
+
+let mapleader = ","
 
 filetype on
 filetype plugin on
@@ -86,8 +89,18 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'transparent_background': 0
+  \     }
+  \   }
+  \ }
+
+
 set background=dark
 colorscheme PaperColor
+
 
 set termguicolors
 " let ayucolor="mirage"
@@ -157,3 +170,6 @@ nnoremap <C-f> :NERDTreeFind<CR>
 " PLUGIN: vim-devicons
 set guifont=RobotoMono\ Nerd\ Font\ 11
 let g:airline_powerline_fonts = 1
+
+" PLUGIN: TagBar
+nnoremap <leader>tt :TagbarToggle<CR>

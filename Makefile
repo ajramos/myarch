@@ -125,6 +125,7 @@ nvim-config:
 	@mkdir -pv ~/.config/nvim
 	@cp -vr nvim/ ~/.config/
 	@nvim +PlugInstall
+	@go get -u github.com/stamblerre/gocode
 
 pcmanfm-config:
 	@echo "Deploying PCManFM config files..."

@@ -50,6 +50,10 @@ ctrl + Print
 ctrl + shift + Print
   scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/ && pqiv ~/Pictures/$f'
 
+# Capture Area to Clipboard
+ctrl + alt + Print
+  scrot -s '/tmp/%F_%T_$wx$h.png' -e 'xclip -selection clipboard -target image/png -i $f'
+
 # Volume Control
 super + ctrl + v
   ~/.config/rofi/volume.sh
