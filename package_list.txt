@@ -64,7 +64,7 @@ colord-sane 1.4.5-1
 confuse 3.3-3
 containerd 1.5.2-1
 coreutils 8.32-1
-cryptsetup 2.3.5-4
+cryptsetup 2.3.6-1
 ctags 1:r20210106+g08b1c490-1
 cups 1:2.3.3op2-3
 cups-filters 1.28.8-1
@@ -120,7 +120,7 @@ flat-remix 20210518-1
 flex 2.6.4-3
 fluidsynth 2.1.8-1
 fontconfig 2:2.13.93-4
-foomatic-db-ppds 3:20210222-1
+foomatic-db-ppds 3:20210528-1
 freeglut 3.2.1-2
 freetype2 2.10.4-1
 fribidi 1.0.10-1
@@ -381,7 +381,7 @@ libnfnetlink 1.0.1-4
 libnftnl 1.1.9-1
 libnghttp2 1.43.0-1
 libnice 0.1.18-1
-libnl 3.5.0-2
+libnl 3.5.0-3
 libnm 1.30.4-3
 libnma 1.8.30-1
 libnotify 0.7.9-1
@@ -500,7 +500,7 @@ lightdm-gtk-greeter 1:2.0.8-1
 lightdm-slick-greeter 1.5.2-1
 lilv 0.24.12-1
 linkerd 2.10.2-0
-linux 5.12.7.arch1-1
+linux 5.12.8.arch1-1
 linux-api-headers 5.12.3-1
 linux-firmware 20210511.7685cf4-1
 llvm-libs 11.1.0-1
@@ -561,7 +561,7 @@ nspr 4.30-1
 nss 3.65-1
 nss-mdns 0.14.1-3
 numactl 2.0.14-1
-nvidia 465.31-5
+nvidia 465.31-6
 nvidia-dkms 465.31-1
 nvidia-prime 1.0-4
 nvidia-settings 465.27-1
@@ -777,7 +777,7 @@ tre 0.8.0-6
 tslib 1.22-1
 ttf-carlito 20130920-6
 ttf-dejavu 2.37+18+g9b5d1b2f-3
-ttf-iosevka-term 6.1.3-1
+ttf-iosevka-term 7.0.0-1
 ttf-liberation 2.1.4-1
 ttf-opensans 1.101-2
 ttf-weather-icons 2.0.12-1
