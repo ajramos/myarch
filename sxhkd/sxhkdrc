@@ -76,12 +76,12 @@ super + ctrl + n
 
 # Brightness Up
 XF86MonBrightnessUp
-  xbacklight -inc 10 && notify-send -u low -t 1500 "Brightness Up "
+  brightnessctl set +10% && notify-send -u low -t 1500 "Brightness Up "
   
 
 # Brightness Down
 XF86MonBrightnessDown
-  xbacklight -dec 10 && notify-send -u low -t 1500 "Brightness Down "
+  brightnessctl set 10%- && notify-send -u low -t 1500 "Brightness Down "
 
 # Expand display to external output
 XF86Display

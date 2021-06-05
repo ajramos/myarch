@@ -44,10 +44,6 @@ aliases-config:
 	@read
 	@cp -vr oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom/
 
-backlight-config:
-	@echo "Setting backlight daemon (requires sudo)..."
-	sudo systemctl enable clightd.service
-
 bluetooth-config:
 	sudo systemctl start bluetooth
 
@@ -254,7 +250,7 @@ utils:
 	xarchiver libinput-gestures clipmenu scrot xorg-xbacklight xfce4-power-manager \
 	pqiv gparted zathura zathura-cb zathura-djvu zathura-pdf-poppler zathura-ps \
 	remmina pdfmixtool onlyoffice neofetch hwinfo xorg-xclipboard xclip dos2unix \
-	inxi clight
+	inxi brightnessctl
 
 media:
 	@yay -S gimp kazam handbrake vlc

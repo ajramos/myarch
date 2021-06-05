@@ -9,7 +9,6 @@ picom &
 
 # Initialize other utilities
 kitty &
-clight &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 

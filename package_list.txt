@@ -36,6 +36,7 @@ bluez-libs 5.58-1
 bluez-utils 5.58-1
 bmon 4.0-4
 bridge-utils 1.7.1-1
+brightnessctl 0.5.1-2
 brotli 1.0.9-4
 bspwm 0.9.10-1
 btrfs-progs 5.12.1-1
@@ -53,7 +54,6 @@ cdparanoia 10.2-8
 chromaprint 1.5.0-3
 chromium 91.0.4472.77-1
 cifs-utils 6.13-2
-clight 4.5-1
 clightd 5.3-1
 clipmenu 6.2.0-2
 clipnotify 1.0.2-2
