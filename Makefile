@@ -243,7 +243,7 @@ audio:
 	@yay -S alsa-utils pulseaudio pulseaudio-alsa paprefs pavucontrol
 
 launch-bar:
-	@yay -S picom feh nitrogen tilix polybar rofi dunst libnotify \
+	@yay -S picom feh nitrogen tilix polybar rofi dunst libnotify xdo\
 	fontconfig siji xorg-xfd xorg-fonts-misc ttf-iosevka-term noto-fonts-emoji
 
 fm:

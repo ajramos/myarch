@@ -1,7 +1,7 @@
 #! /bin/sh
 
-PRIMARY_MONITOR=$(xrandr | grep " connected " | grep eDP |cut -f 1 -d ' ') 
-SECONDARY_MONITOR=$(xrandr | grep " connected " | grep HDMI |cut -f 1 -d ' ') 
+PRIMARY_MONITOR=$(xrandr | grep eDP |cut -f 1 -d ' ') 
+SECONDARY_MONITOR=$(xrandr | grep HDMI |cut -f 1 -d ' ') 
 
 HAS_SECONDARY=$(xrandr | grep $SECONDARY_MONITOR | cut -f 2 -d ' ')
 BSPC_MONITORS=$(bspc query -M | wc -l)

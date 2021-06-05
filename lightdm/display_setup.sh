@@ -12,5 +12,5 @@ if [ "$HAS_SECONDARY" != "connected" ]; then
 else
   echo "$(date +%FT%H:%M:%S) Dual Monitor Config" >> /tmp/lightdm_init.log
   xrandr --output $PRIMARY_MONITOR --auto --primary \
-	 --output $SECONDARY_MONITOR --mode 3840x2160 --right-of $PRIMARY_MONITOR
+	 --output $SECONDARY_MONITOR --mode 3840x2160 --left-of $PRIMARY_MONITOR
 fi

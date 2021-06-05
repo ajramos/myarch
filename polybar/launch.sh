@@ -17,7 +17,11 @@ if type "xrandr"; then
   MONITOR=$m polybar -q top -c "$DIR"/config.ini &
   MONITOR=$m polybar -q bottom -c "$DIR"/config.ini &
   done
+
+  xdo below -t $(xdo id -n root) $(xdo id -a polybar-top_HDMI-1)
+
 else
   polybar -q top -c "$DIR"/config.ini &
   polybar -q bottom -c "$DIR"/config.ini &
 fi
+xdo below -t $(xdo id -n root) $(xdo id -a polybar-top_eDP-1)
