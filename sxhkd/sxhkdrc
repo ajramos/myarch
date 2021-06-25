@@ -231,7 +231,7 @@ super + {o,i}
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '{term,browser,code,sns,images,term1,browser1,code1,misc0,misc1}' --follow
+	bspc {desktop -f,node -d} '{desktop0,desktop1,desktop2,desktop3,desktop4,desktop5,desktop6,desktop7,desktop8,desktop9}' --follow
 #	bspc {desktop -f,node -d} '^{1-9,10}' --follow
 
 #

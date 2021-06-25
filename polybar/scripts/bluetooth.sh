@@ -25,7 +25,7 @@ if [ "$BTACTIVE" = "active" ]; then
     fi
   fi
 else
-    echo "%{F#ff0000} Off"
+    echo "%{F#ffffff} Off"
 fi
 
 

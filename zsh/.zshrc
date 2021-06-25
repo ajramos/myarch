@@ -134,3 +134,5 @@ fi
 export PATH=$HOME/.config/rofi/bin:$PATH
 # Starship config
 eval "$(starship init zsh)"
+# Nodeenv config
+eval "$(nodenv init -)"

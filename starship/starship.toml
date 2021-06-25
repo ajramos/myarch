@@ -8,3 +8,6 @@ disabled = false
 
 [kubernetes.context_aliases]
 #"cluster_name" = "alias"
+"gke_goxo-163909_europe-west1_staging" = "GOXO_STAGE"
+"gke_goxo-163909_europe-west1_pro" = "GOXO_NEW_PRO"
+

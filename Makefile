@@ -263,7 +263,7 @@ screenlocker:
 
 internet:
 	@yay -S firefox elinks lynx curl chromium neomutt bmon wget \
-	nm-connection-editor youtube-dl transmission-gtk
+	nm-connection-editor youtube-dl transmission-gtk dnsutils
 
 zsh:
 	@yay -S zsh

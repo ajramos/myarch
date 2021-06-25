@@ -19,8 +19,8 @@ SECONDARY_MONITOR=$(xrandr | grep " connected " | grep HDMI |cut -f 1 -d ' ')
 
 HAS_SECONDARY=$(xrandr | grep $SECONDARY_MONITOR | cut -f 2 -d ' ')
 
-DESKTOPS_SET_1="term browser code sns images"
-DESKTOPS_SET_2="term1 browser1 code1 misc0 misc1"
+DESKTOPS_SET_1="desktop0 desktop1 desktop2 desktop3 desktop4"
+DESKTOPS_SET_2="desktop5 desktop6 desktop7 desktop8 desktop9"
 
 if [ "$HAS_SECONDARY" != "connected" ]; then
   bspc monitor $PRIMARY_MONITOR -d $DESKTOPS_SET_1 $DESKTOPS_SET_2
@@ -33,7 +33,7 @@ fi
 $HOME/.config/polybar/launch.sh 
 
 bspc config border_width         2
-bspc config window_gap           8
+bspc config window_gap           5
 
 # Colors
 source $HOME/.config/bspwm/colors.cfg
@@ -45,11 +45,11 @@ bspc config urgent_border_color             "$foreground"
 SPACES=$(bspc query -D)
 for SPACE in $SPACES
 do
-	bspc config -d ${SPACE} window_gap 8
-	bspc config -d ${SPACE} top_padding 10
-	bspc config -d ${SPACE} bottom_padding 10
-	bspc config -d ${SPACE} left_padding 10
-	bspc config -d ${SPACE} right_padding 10
+	bspc config -d ${SPACE} window_gap 5
+	bspc config -d ${SPACE} top_padding 2
+	bspc config -d ${SPACE} bottom_padding 2
+	bspc config -d ${SPACE} left_padding 5
+	bspc config -d ${SPACE} right_padding 5
 done
 
 bspc config automatic_scheme		 	spiral
