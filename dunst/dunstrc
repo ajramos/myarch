@@ -267,7 +267,7 @@
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1". Make sure this key actually exists on your keyboard layout,
     # e.g. check output of 'xmodmap -pke'
-    history = ctrl+h
+    history = ctrl+shift+h
 
     # Context menu.
     context = ctrl+shift+period
@@ -279,14 +279,14 @@
     foreground = "#DFDFDF"
     timeout = 7
     # Icon for notifications with low urgency, uncomment to enable
-    icon = $HOME/.config/dunst/normal.png
+    icon = ~/.config/dunst/normal.png
 
 [urgency_normal]
     background = "#283238"
     foreground = "#00BCD4"
     timeout = 7
     # Icon for notifications with normal urgency, uncomment to enable
-    icon = $HOME/.config/dunst/normal.png
+    icon = ~/.config/dunst/normal.png
 
 [urgency_critical]
     background = "#283238"
@@ -294,7 +294,7 @@
     frame_color = "#fdd835"
     timeout = 0
     # Icon for notifications with critical urgency, uncomment to enable
-    icon = $HOME/.config/dunst/critical.png
+    icon = ~/.config/dunst/critical.png
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

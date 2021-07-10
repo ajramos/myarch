@@ -6,6 +6,7 @@ code --install-extension codezombiech.gitignore
 code --install-extension CoenraadS.bracket-pair-colorizer-2
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension DotJoshJohnson.xml
+code --install-extension dracula-theme.theme-dracula
 code --install-extension dsznajder.es7-react-js-snippets
 code --install-extension eg2.vscode-npm-script
 code --install-extension esbenp.prettier-vscode

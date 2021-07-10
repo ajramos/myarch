@@ -22,6 +22,7 @@ copy-config:
 	@cp -vr ~/.config/tilix .
 	@cp -vr ~/.config/gtk-3.0 .
 	@cp -vr ~/.config/pcmanfm .
+	@cp -vr ~/.config/ranger .
 	@cp -v ~/.oh-my-zsh/custom/aliases.zsh oh-my-zsh/
 	@cp -v /etc/X11/xorg.conf.d/40-libinput.conf ./X11/xorg.conf.d/
 	@cp -v /etc/lightdm/{lightdm.conf,slick-greeter.conf,display_setup.sh} ./lightdm/
@@ -107,6 +108,14 @@ locale-config:
 	sudo localectl set-x11-keymap es
 	@read
 
+mimes-config:
+	@xdg-mime default pqiv.desktop image/png
+	@xdg-mime default pqiv.desktop image/jpeg
+	@xdg-mime default pqiv.desktop image/bmp
+	@xdg-mime default xarchiver.desktop application/x-bzip2
+	@xdg-mime default xarchiver.desktop application/zip
+	@xdg-mime default xarchiver.desktop application/gzip
+
 nvidia-config:
 	@echo "Adding pacman hook to include driver and drm modeset every time the kernel updates"
 	sudo mkdir -pv /etc/pacman.d/hooks
@@ -157,6 +166,11 @@ printer-config:
 pulseaudio-config:
 	@echo "Activation of the echo cancellation filter"
 	echo "load-module module-echo-cancel" | sudo tee -a /etc/pulse/default.pa
+
+ranger-config:
+	@echo "Deploying ranger config files..."
+	@mkdir -pv ~/.config/ranger
+	@cp -vr ranger/ ~/.config/
 
 rofi-config:
 	@echo "Deploying rofi config files..."
