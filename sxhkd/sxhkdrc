@@ -158,7 +158,7 @@ alt + v
         -theme ~/.config/polybar/scripts/rofi/launcher.rasi
 
 # Close screen
-super + shift + c
+super + shift + z
     sleep 0.5; xset dpms force standby
 
 # Lock screen

@@ -8,7 +8,6 @@ feh --bg-fill /home/ajramos/Pictures/japanese.jpg &
 picom &
 
 # Initialize other utilities
-kitty &
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 
@@ -23,14 +22,15 @@ DESKTOPS_SET_1="desktop0 desktop1 desktop2 desktop3 desktop4"
 DESKTOPS_SET_2="desktop5 desktop6 desktop7 desktop8 desktop9"
 
 if [ "$HAS_SECONDARY" != "connected" ]; then
-  bspc monitor $PRIMARY_MONITOR -d $DESKTOPS_SET_1 $DESKTOPS_SET_2
+    if [ $(bspc query -D --names | wc -l) -ne 10 ]; then
+      bspc monitor $PRIMARY_MONITOR -d $DESKTOPS_SET_1 $DESKTOPS_SET_2
+    else
+      bspc monitor $PRIMARY_MONITOR -o $DESKTOPS_SET_1 $DESKTOPS_SET_2
+    fi
 else
-  bspc monitor $PRIMARY_MONITOR -d $DESKTOPS_SET_1 
   bspc monitor $SECONDARY_MONITOR -d $DESKTOPS_SET_2
+  bspc monitor $PRIMARY_MONITOR -d $DESKTOPS_SET_1 
 fi
-
-#Initialize polybar after arranging icons
-$HOME/.config/polybar/launch.sh 
 
 bspc config border_width         2
 bspc config window_gap           5
@@ -41,6 +41,7 @@ bspc config focused_border_color            "$primary"
 bspc config active_border_color             "$green"
 bspc config normal_border_color             "$background"
 bspc config urgent_border_color             "$foreground"
+bspc config presel_feedback_color           "$primary"
 
 SPACES=$(bspc query -D)
 for SPACE in $SPACES
@@ -58,30 +59,35 @@ bspc config borderless_monocle   	true
 bspc config gapless_monocle      	false
 bspc config single_monocle       	true
 bspc config focus_follows_pointer true
+bspc config remove_disabled_monitor true
+bspc config honor_size_hints      true
 
+#bspc desktop ^1 -1 monocle
+#bspc desktop ^2 -1 monocle
+#bspc desktop ^5 -1 monocle
+#bspc desktop ^6 -1 monocle
+#bspc desktop ^9 -1 monocle
+#bspc desktop ^10 -1 monocle
 
-bspc desktop ^1 -1 monocle
-bspc desktop ^2 -1 monocle
-bspc desktop ^5 -1 monocle
-bspc desktop ^6 -1 monocle
-bspc desktop ^9 -1 monocle
-bspc desktop ^10 -1 monocle
-
-bspc rule -a firefox desktop='desktop2'
-bspc rule -a code-oss desktop='desktop3'
-bspc rule -a robo3t desktop='desktop3'
-bspc rule -a TelegramDesktop desktop='desktop4'
-bspc rule -a Cawbird desktop='desktop4'
-bspc rule -a Slack desktop='desktop4'
-bspc rule -a Gimp-2.10 desktop='desktop5' state=floating follow=on
+#bspc rule -a firefox desktop='desktop2'
+#bspc rule -a code-oss desktop='desktop3'
+#bspc rule -a robo3t desktop='desktop3'
+#bspc rule -a TelegramDesktop desktop='desktop4'
+#bspc rule -a Cawbird desktop='desktop4'
+#bspc rule -a Slack desktop='desktop4'
+#bspc rule -a Gimp-2.10 desktop='desktop5' state=floating follow=on
 #bspc rule -a mplayer2 state=floating
 #bspc rule -a Kupfer.py focus=on
 #bspc rule -a Screenkey manage=off
 
 # set Desktop 7 to start with floating windows
-FLOATING_DEKSTOP_ID=$(bspc query -D -d '^7')
-bspc subscribe node_manage | while read -a msg ; do
-	desk_id=${msg[2]}
-	wid=${msg[3]}
-	[ "$FLOATING_DEKSTOP_ID" = "$desk_id" ] && bspc node "$wid" -t floating
-done
+#FLOATING_DEKSTOP_ID=$(bspc query -D -d 'desktop9')
+#bspc subscribe node_manage | while read -a msg ; do
+#	desk_id=${msg[2]}
+#	wid=${msg[3]}
+#	[ "$FLOATING_DEKSTOP_ID" = "$desk_id" ] && bspc node "$wid" -t floating
+#done
+#
+
+#Initialize polybar after arranging icons
+$HOME/.config/polybar/launch.sh 

@@ -25,9 +25,10 @@ copy-config:
 	@cp -vr ~/.config/ranger .
 	@cp -v ~/.oh-my-zsh/custom/aliases.zsh oh-my-zsh/
 	@cp -v /etc/X11/xorg.conf.d/40-libinput.conf ./X11/xorg.conf.d/
-	@cp -v /etc/lightdm/{lightdm.conf,slick-greeter.conf,display_setup.sh} ./lightdm/
+	@cp -v /etc/lightdm/{lightdm.conf,slick-greeter.conf,display_setup.sh,display_hdmi.sh} ./lightdm/
 	@cp -vr ~/.local/share/fonts local/share/
 	@cp -v /etc/nsswitch.conf printer/nss-mdns/
+	@cp -v /etc/udev/rules.d/99-hdmicheck.rules udev-rules/
 	@code --list-extensions | sed -e 's/^/code --install-extension /' > ./vscode/my_vscode_extensions.sh
 	@yay -Q > package_list.txt
 
@@ -100,6 +101,8 @@ lightdm-config:
 	@echo "Deploying window manager files...(requires sudo)"
 	sudo cp -v lightdm/lightdm.conf /etc/lightdm/
 	sudo cp -v lightdm/slick-greeter.conf /etc/lightdm/
+	sudo cp -v lightdm/display_setup.sh /etc/lightdm/
+	sudo cp -v lightdm/display_hdmi.sh /etc/lightdm/
 	@read
 
 locale-config:
@@ -193,6 +196,10 @@ tilix-config:
 	@echo "Deploying tilix config files..."
 	@mkdir -pv ~/.config/tilix
 	@cp -vr tilix/ ~/.config/
+
+udev-rules-config:
+	@echo "Deploying udev rules config files... (requires sudo)"
+	sudo cp -v udev-rules/* /etc/udev/rules.d/
 
 vim-theme-config:
 	@echo "Deploying vim config files..."

@@ -207,7 +207,7 @@ gtkmm 1:2.24.5-4
 gtkmm3 3.24.5-2
 gtksourceview3 3.24.11+28+g73e57b57-1
 gts 0.7.6.121130-2
-gucharmap 13.0.6-1
+gucharmap 13.0.8-1
 guile 2.2.7-1
 gupnp 1.2.7-1
 gupnp-igd 1.2.0-1
@@ -850,7 +850,7 @@ tree-sitter 0.20.0-1
 tslib 1.22-1
 ttf-carlito 20130920-6
 ttf-dejavu 2.37+18+g9b5d1b2f-3
-ttf-iosevka-term 7.2.6-1
+ttf-iosevka-term 7.2.7-1
 ttf-liberation 2.1.4-1
 ttf-opensans 1.101-2
 ttf-weather-icons 2.0.12-1
@@ -880,7 +880,7 @@ vulkan-icd-loader 1.2.182-1
 wavpack 5.4.0-1
 wayland 1.19.0-1
 wayland-protocols 1.21-1
-webkit2gtk 2.32.1-1
+webkit2gtk 2.32.2-1
 webrtc-audio-processing 0.3.1-3
 wget 1.21.1-1
 which 2.21-5
