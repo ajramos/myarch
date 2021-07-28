@@ -24,6 +24,7 @@ copy-config:
 	@cp -vr ~/.config/pcmanfm .
 	@cp -vr ~/.config/ranger .
 	@cp -vr ~/.config/htop .
+	@cp -vi /usr/lib/systemd/system/powertop.service  systemd-services/
 	@cp -v ~/.oh-my-zsh/custom/aliases.zsh oh-my-zsh/
 	@cp -v /etc/X11/xorg.conf.d/40-libinput.conf ./X11/xorg.conf.d/
 	@cp -v /etc/lightdm/{lightdm.conf,slick-greeter.conf,display_setup.sh,display_hdmi.sh} ./lightdm/
@@ -161,8 +162,10 @@ polybar-config:
 	@cp -vr polybar/ ~/.config/
 
 power-config:
-	@echo "Setting locale config...(requires sudo)"
-	sudo powertop --auto-tune
+	@echo "Setting power config...(requires sudo)"
+	sudo cp -vi systemd-services/powertop.service /usr/lib/systemd/system/
+	sudo ln -s /usr/lib/systemd/system/powertop.service /etc/systemd/system/powertop.service
+	sudo systemctl enable powertop 
 	@read
 
 printer-config:
