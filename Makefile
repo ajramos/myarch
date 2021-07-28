@@ -23,6 +23,7 @@ copy-config:
 	@cp -vr ~/.config/gtk-3.0 .
 	@cp -vr ~/.config/pcmanfm .
 	@cp -vr ~/.config/ranger .
+	@cp -vr ~/.config/htop .
 	@cp -v ~/.oh-my-zsh/custom/aliases.zsh oh-my-zsh/
 	@cp -v /etc/X11/xorg.conf.d/40-libinput.conf ./X11/xorg.conf.d/
 	@cp -v /etc/lightdm/{lightdm.conf,slick-greeter.conf,display_setup.sh,display_hdmi.sh} ./lightdm/
@@ -33,7 +34,7 @@ copy-config:
 	@yay -Q > package_list.txt
 
 deploy: aliases-config bspwm-config dotfiles-config dunst-config fonts-config \
-gtk-3.0-config kitty-config lightdm-config lock-config \
+gtk-3.0-config kitty-config lightdm-config lock-config htop-config\
 nvim-config pcmanfm-config pdf-default-config picom-config \
 polybar-config printer-config rofi-config sxhkd-config \
 tilix-config vim-theme-config wallpaper-config xorg-config \
@@ -75,6 +76,11 @@ dunst-config:
 	@echo "Deploying dunst config files..."
 	@mkdir -pv ~/.config/dunst
 	@cp -vr dunst/ ~/.config/
+
+htop-config:
+	@echo "Deploying htop config files..."
+	@mkdir -pv ~/.config/htop
+	@cp -vr htop/ ~/.config/
 
 fonts-config:
 	@echo "Deploying font files..."
