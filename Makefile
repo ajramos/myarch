@@ -125,6 +125,7 @@ mimes-config:
 	@xdg-mime default xarchiver.desktop application/x-bzip2
 	@xdg-mime default xarchiver.desktop application/zip
 	@xdg-mime default xarchiver.desktop application/gzip
+	@xdg-mime default pcmanfm.desktop inode/directory
 
 nvidia-config:
 	@echo "Adding pacman hook to include driver and drm modeset every time the kernel updates"
