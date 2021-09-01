@@ -58,7 +58,7 @@ case $chosen in
         ;;
     $lock)
 		if [[ -f /usr/bin/betterlockscreen ]]; then
-			betterlockscreen -l dim -t 'La curiosidade mató al gato'
+			betterlockscreen -l dim -w
 		elif [[ -f /usr/bin/i3lock ]]; then
 			i3lock
 		fi
