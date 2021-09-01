@@ -163,7 +163,7 @@ super + shift + z
 
 # Lock screen
 super + shift + x
-    betterlockscreen -l dim -t 'La curiosidad mató al gato'
+    betterlockscreen -l dim -w
 
 # bspwm hotkeys
 # 
