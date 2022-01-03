@@ -16,6 +16,7 @@ code --install-extension hashicorp.terraform
 code --install-extension humao.rest-client
 code --install-extension ipedrazas.kubernetes-snippets
 code --install-extension jpoissonnier.vscode-styled-components
+code --install-extension JuanBlanco.solidity
 code --install-extension lonefy.vscode-JS-CSS-HTML-formatter
 code --install-extension marp-team.marp-vscode
 code --install-extension mhutchie.git-graph
@@ -23,6 +24,7 @@ code --install-extension ms-azuretools.vscode-docker
 code --install-extension MS-CEINTL.vscode-language-pack-es
 code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
 code --install-extension ms-python.python
+code --install-extension ms-toolsai.jupyter
 code --install-extension ms-vscode.node-debug2
 code --install-extension rebornix.ruby
 code --install-extension redhat.java
