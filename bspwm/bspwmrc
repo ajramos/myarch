@@ -4,6 +4,7 @@
 clipmenud &
 
 # Initialize Look and feel
+xss-lock -- betterlockscreen -l dim -w &
 feh --bg-fill /home/ajramos/Pictures/japanese.jpg &
 picom &
 

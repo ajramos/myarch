@@ -290,7 +290,7 @@ gvfs:
 	@yay -S udisks2 gvfs gvfs-smb 
 
 screenlocker:
-	@yay -S betterlockscreen imagemagick xorg-xdpyinfo
+	@yay -S betterlockscreen imagemagick xorg-xdpyinfo xss-lock
 
 internet:
 	@yay -S firefox elinks lynx curl chromium neomutt bmon wget \
