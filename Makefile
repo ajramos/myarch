@@ -1,4 +1,4 @@
-all: copy-config backup-config
+all: copy-config backup-repo
 copy-config:
 	@echo "Copying config files..."
 	@cp -v ~/.zshrc ./zsh/
