@@ -131,8 +131,9 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 fi
 
 # Config Rofi-themes
-export PATH=$HOME/.config/rofi/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/.config/rofi/bin:$PATH
 # Starship config
 eval "$(starship init zsh)"
 # Nodeenv config
 eval "$(nodenv init -)"
+

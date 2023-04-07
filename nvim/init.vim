@@ -2,7 +2,6 @@
 "
 call plug#begin('~/.vim/plugged')
 
-Plug 'NLKNguyen/papercolor-theme'
 Plug 'ayu-theme/ayu-vim'
 Plug 'joshdick/onedark.vim'
 Plug 'fatih/vim-go'
@@ -10,8 +9,9 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
-Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'tpope/vim-fugitive'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -159,7 +159,7 @@ let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#ale#enabled=1
 let g:airline#extensions#fugitiveline#enabled=1
 let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme='PaperColor'
+let g:airline_theme='papercolor'
 
 " PLUGIN: NERDTree
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -168,7 +168,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 " PLUGIN: vim-devicons
-set guifont=RobotoMono\ Nerd\ Font\ 11
+set guifont=DroidSansMono\ Nerd\ Font\ 11
 let g:airline_powerline_fonts = 1
 
 " PLUGIN: TagBar

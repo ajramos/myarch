@@ -24,3 +24,6 @@ alias portainer="browse http://localhost:9000"
 alias listen2yt="youtube-dl -x --verbose --audio-format mp3"
 alias kns="kubens"
 alias kctx="kubectx"
+alias cat=bat
+alias du=dust
+alias vi=lvim

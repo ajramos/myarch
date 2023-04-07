@@ -24,6 +24,8 @@ copy-config:
 	@cp -vr ~/.config/pcmanfm .
 	@cp -vr ~/.config/ranger .
 	@cp -vr ~/.config/htop .
+	@cp -v ~/.config/lvim/config.lua ./lvim/
+	@cp -v ~/.local/share/lunarvim/lvim/lua/lvim/core/which-key.lua ./lvim/
 	@cp -vi /usr/lib/systemd/system/powertop.service  systemd-services/
 	@cp -v ~/.oh-my-zsh/custom/aliases.zsh oh-my-zsh/
 	@cp -v /etc/X11/xorg.conf.d/40-libinput.conf ./X11/xorg.conf.d/
@@ -35,7 +37,7 @@ copy-config:
 	@yay -Q > package_list.txt
 
 deploy: aliases-config bspwm-config dotfiles-config dunst-config fonts-config \
-gtk-3.0-config kitty-config lightdm-config lock-config htop-config\
+gtk-3.0-config kitty-config lightdm-config lock-config lvim-config htop-config\
 nvim-config pcmanfm-config pdf-default-config picom-config \
 polybar-config printer-config rofi-config sxhkd-config \
 tilix-config vim-theme-config wallpaper-config xorg-config \
@@ -87,6 +89,7 @@ fonts-config:
 	@echo "Deploying font files..."
 	@mkdir -pv ~/.local/share/fonts
 	@cp -vr local/share/fonts ~/.local/share/
+	@fc-cache -f -v
 
 grub-config:
 	@echo "Updating grub config..."
@@ -117,6 +120,13 @@ locale-config:
 	sudo localectl set-keymap es
 	sudo localectl set-x11-keymap es
 	@read
+
+lvim-config:
+	@echo "Deploying lvim config files..."
+	@mkdir -pv ~/.config/lvim
+	@cp -v ~./lvim/config.lua ~/.config/lvim/
+	@mkdir -pv ~/.local/share/lunarvim/lvim/lua/lvim/core
+	@cp -v ~./lvim/which-key.lua ~/.local/share/lunarvim/lvim/lua/lvim/core/
 
 mimes-config:
 	@xdg-mime default pqiv.desktop image/png
@@ -224,9 +234,9 @@ vscode-config:
 wallpaper-config:
 	@echo "Deploying wallpaper config files...(requires sudo)"
 	@mkdir -pv ~/Pictures
-	@cp -v wallpapers/{japanese.jpg,city.jpg,wall-e.jpg} ~/Pictures/
-	@betterlockscreen -u ~/Pictures/wall-e.jpg
-	sudo cp -v wallpapers/wall-e.jpg /usr/share/pixmaps/
+	@cp -v wallpapers/{japanese.jpg,city.jpg,loginarch.jpg} ~/Pictures/
+	@betterlockscreen -u ~/Pictures/loginarch.jpg
+	sudo cp -v wallpapers/loginarch.jpg /usr/share/pixmaps/
 	@read
 
 xorg-config:
