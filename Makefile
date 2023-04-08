@@ -201,10 +201,7 @@ rofi-config:
 	@cp -vr rofi/ ~/.config/
 
 starship-config:
-	@echo "Installing/updating starship..."
-	@curl -fsSL "https://starship.rs/install.sh" > ./install.sh
-	@chmod 755 ./install.sh
-	@./install.sh
+	@echo "Deploying starship config file..."
 	@cp -v ./starship/starship.toml ~/.config/starship.toml
 
 sxhkd-config:

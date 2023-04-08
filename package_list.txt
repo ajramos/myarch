@@ -92,7 +92,7 @@ cups-filters 1.28.17-2
 cups-pdf 3.0.1-7
 curl 8.0.1-1
 curlie 1.6.9-2
-cython 0.29.33-1
+cython 0.29.34-1
 dav1d 1.1.0-1
 db 6.2.32-1
 db5.3 5.3.28-2
@@ -111,6 +111,7 @@ dive 0.10.0-3
 djvulibre 3.5.28-4
 dkms 3.0.10-1
 dmenu 5.2-1
+dmidecode 3.5-1
 dmraid 1.0.0.rc16.3-14
 dnssec-anchors 20190629-3
 docbook-xml 4.5-9
@@ -128,7 +129,7 @@ dust-bin 0.6.1-1
 e2fsprogs 1.47.0-1
 efibootmgr 18-2
 efivar 38-3
-egl-wayland 2:1.1.11-3
+egl-wayland 2:1.1.11-4
 eglexternalplatform 1.1-2
 electron 22.3.3-1
 electron11 11.5.0-5
@@ -146,7 +147,7 @@ expat 2.5.0-1
 faac 1.30-4
 faad2 2.10.1-1
 fakeroot 1.31-2
-feh 3.9.1-2
+feh 3.10-1
 ffmpeg 2:6.0-4
 ffmpeg4.4 4.4.3-1
 fftw 3.3.10-4
@@ -191,7 +192,7 @@ giflib 5.2.1-2
 gimp 2.10.34-1
 girara 0.4.0-1
 git 2.40.0-1
-github-cli 2.26.1-1
+github-cli 2.27.0-1
 glew 2.2.0-6
 glib-networking 1:2.76.0-1
 glib2 2.76.1-1
@@ -246,7 +247,7 @@ gtk-update-icon-cache 1:4.10.1-2
 gtk2 2.24.33-2
 gtk3 1:3.24.37-1
 gtk4 1:4.10.1-2
-gtkd 3.10.0-5
+gtkd 3.10.0-6
 gtkmm 1:2.24.5-4
 gtkmm-4.0 4.10.0-1
 gtkmm3 3.24.7-1
@@ -290,6 +291,7 @@ haskell-vector 0.13.0.0-39
 haskell-vector-algorithms 0.9.0.1-45
 haskell-vector-stream 0.1.0.0-1
 hdf5 1.14.0-2
+hdparm 9.65-1
 helm 3.11.2-1
 hexchat 2.16.1-3
 hicolor-icon-theme 0.17-3
@@ -316,6 +318,7 @@ imath 3.1.7-1
 imlib2 1.11.0-1
 iniparser 4.1-4
 intel-ucode 20230214-1
+intel-undervolt 1.7-2
 intltool 0.51.0-6
 inxi 3.3.26.1-1
 iotop 0.6-9
@@ -323,6 +326,7 @@ iproute2 6.2.0-2
 iptables 1:1.8.9-1
 iputils 20221126-1
 iso-codes 4.13.0-1
+iw 5.19-1
 jack2 1.9.22-1
 jansson 2.14-2
 jasper 4.0.0-1
@@ -470,7 +474,7 @@ libksba 1.6.3-1
 libldac 2.0.2.3-1
 libldap 2.6.4-1
 liblouis 3.25.0-1
-liblphobos 3:1.31.0-1
+liblphobos 3:1.32.0-1
 liblqr 0.4.2-3
 liblrdf 0.6.1-4
 libltc 1.3.2-1
@@ -480,7 +484,7 @@ libmanette 0.2.6-4
 libmatroska 1.7.1-1
 libmaxminddb 1.7.1-1
 libmd 1.0.4-1
-libmfx 23.1.3-2
+libmfx 23.1.6-1
 libmicrodns 0.2.0-1
 libmicrohttpd 0.9.76-1
 libmm-glib 1.20.6-1
@@ -640,7 +644,7 @@ lightdm-gtk-greeter 1:2.0.8-3
 lightdm-slick-greeter 1.6.1-1
 lilv 0.24.20-1
 linkerd 2.12.0-1
-linux 6.2.9.arch1-1
+linux 6.2.10.arch1-1
 linux-api-headers 6.1.9-1
 linux-firmware 20230210.bf4115c-1
 linux-firmware-whence 20230210.bf4115c-1
@@ -673,7 +677,7 @@ mc 4.8.29-2
 md4c 0.4.8-1
 mdadm 4.2-2
 menu-cache 1.1.0-4
-mesa 23.0.1-2
+mesa 23.0.2-2
 mesa-demos 9.0.0-2
 metis 5.1.0.p11-1
 microsoft-edge-beta-bin 112.0.1722.31-1
@@ -683,6 +687,7 @@ mjpegtools 2.2.1-1
 mkinitcpio 35.2-1
 mkinitcpio-busybox 1.35.0-1
 mobile-broadband-provider-info 20221107-2
+mokutil 0.6.0-2
 mongodb-compass 1.36.2-1
 mongodb-tools-bin 100.7.0-2
 mpfr 4.2.0-3
@@ -693,7 +698,6 @@ mypaint-brushes1 1.3.1-1
 ncurses 6.4-1
 ndctl 76.1-1
 neofetch 7.1.0-2
-neomutt 20230322-3
 neon 0.32.5-1
 neovim 0.9.0-1
 neovim-remote 2.5.1-1
@@ -849,6 +853,7 @@ python-distro 1.8.0-2
 python-distutils-extra 2.39-10
 python-dnspython 1:2.3.0-1
 python-docutils 1:0.19-3
+python-evdev 1.6.1-1
 python-fasteners 0.18-1
 python-fastjsonschema 2.16.3-1
 python-future 0.18.2-7
@@ -901,6 +906,7 @@ python-pyqt5-sip 12.11.1-1
 python-pysocks 1.7.1-7
 python-pytz 2022.7.1-1
 python-pyxdg 0.28-1
+python-pyzmq 25.0.2-1
 python-requests 2.28.2-1
 python-requests-toolbelt 0.10.1-1
 python-resolvelib 0.9.0-1
@@ -1041,6 +1047,9 @@ simple-scan 42.5-1
 skypeforlinux-stable-bin 8.96.0.207-1
 slack-desktop 4.29.149-1
 slang 2.3.3-2
+slimbookbattery 4.0.8beta-3
+slimbookintelcontroller 1.0beta-1
+slimbookservice-bin 0.3.3-1
 smbclient 4.18.1-1
 snappy 1.1.9-2
 sndio 1.9.0-1
@@ -1055,6 +1064,7 @@ spirv-tools 2022.4-1
 sqlite 3.41.2-1
 sratom 0.6.14-1
 srt 1.5.1-3
+starship 1.13.1-1
 startup-notification 0.12-7
 sudo 1.9.13.p3-1
 suitesparse 7.0.1-2
@@ -1083,9 +1093,11 @@ texinfo 7.0.3-1
 thin-provisioning-tools 1.0.3-1
 thunderbird 102.9.1-1
 tidy 5.8.0-2
-tilix 1.9.5-5
+tilix 1.9.5-6
 tinyxml 2.6.2-10
 tk 8.6.13-1
+tlp 1.5.0-6
+tlp-rdw 1.5.0-6
 tmux 3.3_a-3
 tpm2-tss 3.2.0-3
 tracker3 3.5.0-1
@@ -1095,7 +1107,7 @@ tree-sitter 0.20.8-1
 tslib 1.22-1
 ttf-carlito 20130920-6
 ttf-dejavu 2.37+18+g9b5d1b2f-3
-ttf-iosevka-term 22.0.0-1
+ttf-iosevka-term 22.0.1-1
 ttf-liberation 2.1.5-1
 ttf-opensans 1.101-2
 ttf-weather-icons 2.0.12-1

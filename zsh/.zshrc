@@ -118,9 +118,8 @@ PROMPT='$(kube_ps1)'$PROMPT
 export GOPATH=$HOME/go
 
 # Config Neovim as default editor
-alias vi=nvim
-export EDITOR='/usr/bin/nvim'
-export VISUAL='/usr/bin/nvim'
+export EDITOR=$HOME/.local/bin/lvim
+export VISUAL=$HOME/.local/bin/lvim
 
 # Enable vi mode instead of emacs
 bindkey -v

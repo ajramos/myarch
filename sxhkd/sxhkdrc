@@ -20,7 +20,7 @@ super + r
 
 # File select from launcher
 super + shift + e
-  ~/.config/polybar/scripts/launcher.sh file-browser
+  ~/.config/polybar/scripts/launcher.sh filebrowser
 
 # This help
 super + question

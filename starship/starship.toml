@@ -4,10 +4,13 @@ error_symbol = "[✗](bold red) "
 
 [kubernetes]
 format = 'on [⛵ $context \($namespace\)](dimmed green) '
-disabled = false
+disabled = true
 
 [kubernetes.context_aliases]
 #"cluster_name" = "alias"
-"gke_goxo-163909_europe-west1_staging" = "GOXO_STAGE"
-"gke_goxo-163909_europe-west1_pro" = "GOXO_NEW_PRO"
 
+[gcloud]
+disabled = false
+format = 'on [$symbol$account(@$domain)(\($project\))]($style) '
+[gcloud.project_aliases]
+inner-synapse-358216 = 'Goxo Last Dance'
