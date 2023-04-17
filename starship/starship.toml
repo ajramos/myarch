@@ -1,16 +1,196 @@
+format = """
+[](#263238)\
+$os\
+$sudo\
+$username\
+[](fg:#263238 bg:#33658A)\
+$directory\
+[](fg:#33658A bg:#8C2632)\
+$git_branch\
+$git_status\
+[](fg:#8C2632 bg:#86BBD8)\
+$c\
+$elixir\
+$elm\
+$golang\
+$gradle\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$python\
+$rust\
+$scala\
+[](fg:#86BBD8 bg:#43A047)\
+$gcloud\
+[](fg:#43A047 bg:#06969A)\
+$kubernetes\
+[](fg:#06969A)\
+$cmd_duration\
+$line_break\
+$jobs\
+$battery\
+$time\
+$status\
+$container\
+$character
+"""
+
+# Disable the blank line at the start of the prompt
+# add_newline = false
+
+# You can also replace your username with a neat symbol like   or disable this
+# and use the os module below
+[username]
+show_always = true
+style_user = "bg:#263238"
+style_root = "bg:#263238"
+format = '[$user ]($style)'
+disabled = true
+
+# An alternative to the username module which displays a symbol that
+# represents the current operating system
+[os]
+style = "bg:#263238"
+disabled = false# Disabled by default
+
+[os.symbols]
+Arch = " "
+
+[sudo]
+disabled = false
+symbol = "⭐ "
+style = "bg:#263238"
+format = '[$symbol]($style)'
+
+[directory]
+style = "bg:#33658A"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+
+# Here is how you can shorten some long paths by text replacement
+# similar to mapped_locations in Oh My Posh:
+[directory.substitutions]
+"Documents" = " "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+# Keep in mind that the order matters. For example:
+# "Important Documents" = "  "
+# will not be replaced, because "Documents" was already substituted before.
+# So either put "Important Documents" before "Documents" or use the substituted version:
+# "Important  " = "  "
+
+[c]
+symbol = " "
+style = "fg:#000000 bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[docker_context]
+symbol = " "
+style = "bg:#06969A"
+format = '[ $symbol $context ]($style) $path'
+
+[elixir]
+symbol = " "
+style = "fg:#000000 bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[elm]
+symbol = " "
+style = "fg:#000000 bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[git_branch]
+symbol = ""
+style = "bg:#8C2632"
+format = '[ $symbol $branch ]($style)'
+
+[git_status]
+style = "bg:#8C2632"
+format = '[$all_status$ahead_behind ]($style)'
+
+[golang]
+symbol = " "
+style = "fg:#000000 bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[python]
+style = "fg:#000000 bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[gradle]
+style = "fg:#000000 bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[haskell]
+symbol = " "
+style = "fg:#000000 bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[java]
+symbol = " "
+style = "fg:#000000 bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[julia]
+symbol = " "
+style = "fg:#000000 bg:#86BBD8"
+format = '[ $symbol ($version) ]($s#00BCD4tyle)'
+
+[nodejs]
+symbol = ""
+style = "fg:#000000 bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[nim]
+symbol = " "
+style = "fg:#000000 bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[rust]
+symbol = ""
+style = "fg:#000000 bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[scala]
+symbol = " "
+style = "fg:#000000 bg:#86BBD8"
+format = '[ $symbol ($version) ]($style)'
+
+[time]
+disabled = true
+time_format = "%R" # Hour:Minute Format
+style = "bg:#33658A"
+format = '[ ♥ $time ]($style)'
+
 [character]
-success_symbol = "[➜](bold green) "
-error_symbol = "[✗](bold red) "
+success_symbol = "[➜](bold green)"
+error_symbol = "[✗](bold red)"
 
 [kubernetes]
-format = 'on [⛵ $context \($namespace\)](dimmed green) '
+symbol = "⛵"
+style = "bg:dimmed green"
+format = '[$symbol$context\($namespace\)]($style)'
 disabled = true
 
 [kubernetes.context_aliases]
 #"cluster_name" = "alias"
 
 [gcloud]
-disabled = false
-format = 'on [$symbol$account(@$domain)(\($project\))]($style) '
+symbol = "☁️ "
+disabled = true
+style = "bg:#43A047"
+format = '[$symbol$account(@$domain)(\($project\))]($style)'
+
 [gcloud.project_aliases]
 inner-synapse-358216 = 'Goxo Last Dance'
+
+
+[cmd_duration]
+disabled = false
+style = "fg:#FDD835"
+format = '[$duration]($style)'
+

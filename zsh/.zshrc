@@ -68,7 +68,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(alias-finder ansible cp copypath copyfile extract git kubectl kube-ps1 history gcloud golang jsontools minikube nmap sudo systemadmin tmux ubuntu urltools vi-mode vscode web-search z)
+plugins=(alias-finder ansible cp copypath copyfile extract git kubectl kube-ps1 history gcloud golang jsontools minikube nmap sudo systemadmin tmux ubuntu urltools vi-mode vscode web-search z zsh-interactive-cd zsh-navigation-tools)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -135,4 +135,38 @@ export PATH=$HOME/.local/bin:$HOME/.config/rofi/bin:$PATH
 eval "$(starship init zsh)"
 # Nodeenv config
 eval "$(nodenv init -)"
+
+# Activate syntax highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Activate autosuggestions
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# fzf improvement
+function fzf-lovely(){
+
+	if [ "$1" = "h" ]; then
+		fzf -m --reverse --preview-window down:20 --preview '[[ $(file --mime {}) =~ binary ]] &&
+ 	                echo {} is a binary file ||
+	                 (bat --style=numbers --color=always {} ||
+	                  highlight -O ansi -l {} ||
+	                  coderay {} ||
+	                  rougify {} ||
+	                  cat {}) 2> /dev/null | head -500'
+
+	else
+	        fzf -m --preview '[[ $(file --mime {}) =~ binary ]] &&
+	                         echo {} is a binary file ||
+	                         (bat --style=numbers --color=always {} ||
+	                          highlight -O ansi -l {} ||
+	                          coderay {} ||
+	                          rougify {} ||
+	                          cat {}) 2> /dev/null | head -500'
+	fi
+}
+
+function rmk(){
+	scrub -p dod $1
+	shred -zun 10 -v $1
+}
 
