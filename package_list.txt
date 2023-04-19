@@ -348,6 +348,7 @@ java-runtime-common 3-5
 jbig2dec 0.19-1
 jdk11-openjdk 11.0.18.u10-2
 jemalloc 1:5.3.0-1
+john 1.9.0.jumbo1-8
 jq 1.6-4
 jre-openjdk 19.0.2.u7-2
 jre-openjdk-headless 19.0.2.u7-2
@@ -692,6 +693,7 @@ maven 3.8.7-1
 mc 4.8.29-2
 md4c 0.4.8-1
 mdadm 4.2-2
+mdcat 2.0.1-1
 menu-cache 1.1.0-4
 mesa 23.0.2-2
 mesa-demos 9.0.0-2
@@ -899,6 +901,7 @@ python-more-itertools 9.1.1-1
 python-msgpack 1.0.4-1
 python-multidict 6.0.3-2
 python-mutagen 1.46.0-1
+python-netifaces 0.11.0-3
 python-nspektr 0.4.0-2
 python-numpy 1.24.2-1
 python-ordered-set 4.1.0-1
@@ -1112,7 +1115,6 @@ tesseract-data-spa 2:4.1.0-3
 tevent 1:0.14.1-1
 texinfo 7.0.3-1
 thin-provisioning-tools 1.0.3-1
-thunderbird 102.10.0-1
 tidy 5.8.0-2
 tilix 1.9.5-6
 tinyxml 2.6.2-10

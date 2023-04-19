@@ -68,7 +68,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(alias-finder ansible cp copypath copyfile extract git kubectl kube-ps1 history gcloud golang jsontools minikube nmap sudo systemadmin tmux ubuntu urltools vi-mode vscode web-search z zsh-interactive-cd zsh-navigation-tools)
+plugins=(alias-finder ansible cp copypath copyfile extract fd fzf git kubectl kube-ps1 history gcloud golang jsontools minikube nmap sudo systemadmin tmux ubuntu urltools vi-mode vscode web-search z zsh-interactive-cd zsh-navigation-tools)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -170,3 +170,20 @@ function rmk(){
 	shred -zun 10 -v $1
 }
 
+# fzf customization
+# Preview file content using bat (https://github.com/sharkdp/bat)
+export FZF_CTRL_T_OPTS="
+  --preview 'bat -n --color=always {}'
+  --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+# CTRL-/ to toggle small preview window to see the full command
+# CTRL-Y to copy the command into clipboard using pbcopy
+export FZF_CTRL_R_OPTS="
+  --preview 'echo {}' --preview-window up:3:hidden:wrap
+  --bind 'ctrl-/:toggle-preview'
+  --bind 'ctrl-y:execute-silent(echo -n {2..} | pbcopy)+abort'
+  --color header:italic
+  --header 'Press CTRL-Y to copy command into clipboard'"
+
+# Print tree structure in the preview window
+export FZF_ALT_C_OPTS="--preview 'tree -C {}'"

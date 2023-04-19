@@ -36,9 +36,9 @@ copy-config:
 	@code --list-extensions | sed -e 's/^/code --install-extension /' > ./vscode/my_vscode_extensions.sh
 	@yay -Q > package_list.txt
 
-deploy: aliases-config bspwm-config dotfiles-config dunst-config fonts-config \
-gtk-3.0-config kitty-config lightdm-config lock-config lvim-config htop-config\
-nvim-config pcmanfm-config pdf-default-config picom-config \
+deploy: aliases-config black-config bspwm-config dotfiles-config dunst-config \
+fonts-config gtk-3.0-config kitty-config lightdm-config lock-config lvim-config \
+htop-config nvim-config pcmanfm-config pdf-default-config picom-config \
 polybar-config printer-config rofi-config sxhkd-config \
 tilix-config vim-theme-config wallpaper-config xorg-config \
 starship-config power-config vscode-config
@@ -50,6 +50,13 @@ aliases-config:
 	@read
 	@cp -vr oh-my-zsh/aliases.zsh ~/.oh-my-zsh/custom/
 
+black-config:
+	@echo "Setting up blackarch repo... (requires sudo)"
+	@curl -O https://blackarch.org/strap.sh
+	@chmod +x strap.sh
+	sudo ./strap.sh
+	sudo pacman -Syu
+
 bluetooth-config:
 	sudo systemctl start bluetooth
 
@@ -60,9 +67,9 @@ bspwm-config:
 
 cloud-config:
 	@echo "Execute de following commannd to get cloud env ready..."
-	echo "gcloud auth login"
-	echo "gcloud config set project $PROJECT_NAME"
-	echo "sudo usermod -a -G docker $USER"
+	@echo "gcloud auth login"
+	@echo "gcloud config set project $PROJECT_NAME"
+	@echo "sudo usermod -a -G docker $USER"
 
 dotfiles-config:
 	@echo "Deploying dotfiles..."
