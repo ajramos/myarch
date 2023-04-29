@@ -5,7 +5,7 @@ clipmenud &
 
 # Initialize Look and feel
 xss-lock -- betterlockscreen -l dim -w &
-feh --bg-fill /home/ajramos/Pictures/japanese.jpg &
+feh --bg-fill /home/ajramos/Pictures/loginarch.jpg &
 picom &
 
 # Initialize other utilities
@@ -74,13 +74,13 @@ bspc config honor_size_hints      true
 #bspc desktop ^9 -1 monocle
 #bspc desktop ^10 -1 monocle
 
-bspc rule -a firefox desktop='desktop2'
-bspc rule -a code-oss desktop='desktop3'
+bspc rule -a firefox desktop='desktop1' follow=on focus=on
+bspc rule -a code-oss desktop='desktop2'
 bspc rule -a robo3t desktop='desktop3'
 bspc rule -a TelegramDesktop desktop='desktop4'
 bspc rule -a Cawbird desktop='desktop4'
 bspc rule -a Slack desktop='desktop4'
-bspc rule -a Gimp-2.10 desktop='desktop5' state=floating follow=on
+bspc rule -a Gimp-2.10 desktop='desktop5' follow=on
 #bspc rule -a mplayer2 state=floating
 #bspc rule -a Kupfer.py focus=on
 #bspc rule -a Screenkey manage=off

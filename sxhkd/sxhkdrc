@@ -18,6 +18,10 @@ super + ctrl + w
 super + r
   ~/.config/polybar/scripts/launcher.sh run
 
+# Pick-up color to clipboard
+super + o
+  xcolor -P 128 | xsel -b 
+
 # File select from launcher
 super + shift + e
   ~/.config/polybar/scripts/launcher.sh filebrowser

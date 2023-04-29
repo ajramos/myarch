@@ -37,3 +37,18 @@ alias curl="curlie"
 alias dig="dog"
 alias kk="kitty +kitten"
 alias kki="kitty +kitten icat"
+
+# Arch House Keeping
+alias arch_hk="yay -Sc && sudo pacman -Scc"
+
+# Arch Purge
+alias arch_purge="sudo pacman -Rns $(pacman -Qtdq) ; sudo fstrim -av"
+
+# Arch Update
+alias arch_update="yay -Syu --nocombinedupgrade"
+
+alias ahk=arch_hk
+alias ap=arch_purge
+alias au=arch_update
+
+alias omzu="omz reload"

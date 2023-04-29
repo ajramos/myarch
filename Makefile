@@ -269,7 +269,7 @@ yay:
 	@read
 
 xserver:
-	@yay -S xorg-server xorg-xinit xterm xorg-xclock xorg-xrandr xorg-xprop xorg-apps
+	@yay -S xorg-server xorg-xinit xterm xorg-xclock xorg-xrandr xorg-xprop 
 
 video-driver:
 	@yay -S nvidia nvidia-prime nvidia-settings nvidia-dkms nvidia-utils mesa-demos
@@ -311,10 +311,7 @@ internet:
 	nm-connection-editor youtube-dl transmission-gtk dnsutils
 
 zsh:
-	@yay -S zsh
-	@curl -fsSL "https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh" > install.sh 
-	@chmod 755 ./install.sh 
-	@./install.sh
+	@yay -S zsh oh-my-zsh-git
 
 cloud:
 	@yay -S google-cloud-sdk kubens kubectx k9s dive velero linkerd popeye helm
