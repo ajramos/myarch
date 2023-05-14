@@ -8,12 +8,12 @@ BTACTIVE=$(systemctl status bluetooth | grep Active | sed -e 's/\s*Active:\s//g'
 if [ "$BTACTIVE" = "active" ]; then
   if [ "$COMMAND" = "status" ]; then
     if [ $(bluetoothctl show | grep "Powered: yes" | wc -c) -eq 0 ]; then
-      echo "%{F#66ffff} Off"
+      echo "%{F#ffffff} Off"
     else
       if [ $(echo info | bluetoothctl | grep 'Device' | wc -c) -eq 0 ]; then 
-        echo " On"
+        echo "%{F#43a047} On"
       else
-        echo "%{F#2193ff} $(echo info | bluetoothctl | grep Name \
+        echo "%{F#43a047} $(echo info | bluetoothctl | grep Name \
                 | sed -e 's/\s*Name:\s//g')"
       fi
     fi
@@ -25,7 +25,7 @@ if [ "$BTACTIVE" = "active" ]; then
     fi
   fi
 else
-    echo "%{F#dfdfdf} Off"
+    echo "%{F#ffffff} Off"
 fi
 
 
