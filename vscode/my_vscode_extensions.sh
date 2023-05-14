@@ -26,7 +26,6 @@ code --install-extension ms-kubernetes-tools.vscode-kubernetes-tools
 code --install-extension ms-python.isort
 code --install-extension ms-python.python
 code --install-extension ms-toolsai.jupyter
-code --install-extension ms-vscode.node-debug2
 code --install-extension rebornix.ruby
 code --install-extension redhat.java
 code --install-extension redhat.vscode-commons

@@ -24,6 +24,7 @@ copy-config:
 	@cp -vr ~/.config/pcmanfm .
 	@cp -vr ~/.config/ranger .
 	@cp -vr ~/.config/htop .
+	@cp -vr ~/.config/networkmanager-dmenu .
 	@cp -v ~/.config/lvim/config.lua ./lvim/
 	@cp -v ~/.local/share/lunarvim/lvim/lua/lvim/core/which-key.lua ./lvim/
 	@cp -vi /usr/lib/systemd/system/powertop.service  systemd-services/
@@ -37,9 +38,9 @@ copy-config:
 	@yay -Q > package_list.txt
 
 deploy: aliases-config black-config bspwm-config dotfiles-config dunst-config \
-fonts-config gtk-3.0-config kitty-config lightdm-config lock-config lvim-config \
+fonts-config gtk-3.0-config kitty-config lightdm-config locale-config lvim-config \
 htop-config nvim-config pcmanfm-config pdf-default-config picom-config \
-polybar-config printer-config rofi-config sxhkd-config \
+polybar-config printer-config rofi-config sxhkd-config nm-dmenu-config\
 tilix-config vim-theme-config wallpaper-config xorg-config \
 starship-config power-config vscode-config
 
@@ -143,6 +144,11 @@ mimes-config:
 	@xdg-mime default xarchiver.desktop application/zip
 	@xdg-mime default xarchiver.desktop application/gzip
 	@xdg-mime default pcmanfm.desktop inode/directory
+
+nm-dmenu-config:
+	@echo "Configuring Network Manager dmenu"
+	@mkdir -pv ~/.config/networkmanager-dmenu/
+	@cp -vr networkmanager-dmenu/ ~/.config/
 
 nvidia-config:
 	@echo "Adding pacman hook to include driver and drm modeset every time the kernel updates"
@@ -285,7 +291,8 @@ audio:
 
 launch-bar:
 	@yay -S picom feh nitrogen tilix polybar rofi dunst libnotify xdo\
-	fontconfig siji xorg-xfd xorg-fonts-misc ttf-iosevka-term noto-fonts-emoji
+	fontconfig siji xorg-xfd xorg-fonts-misc ttf-iosevka-term noto-fonts-emoji\
+	networkmanager-dmenu-git
 
 fm:
 	@yay -S ranger nnn mc pcmanfm
@@ -295,7 +302,7 @@ utils:
 	xarchiver libinput-gestures clipmenu scrot xorg-xbacklight xfce4-power-manager \
 	pqiv gparted zathura zathura-cb zathura-djvu zathura-pdf-poppler zathura-ps \
 	remmina pdfmixtool onlyoffice neofetch hwinfo xorg-xclipboard xclip dos2unix \
-	inxi brightnessctl
+	inxi brightnessctl bat exa dust fd fzf ripgrep z procs
 
 media:
 	@yay -S gimp kazam handbrake vlc
@@ -308,10 +315,13 @@ screenlocker:
 
 internet:
 	@yay -S firefox elinks lynx curl chromium neomutt bmon wget \
-	nm-connection-editor youtube-dl transmission-gtk dnsutils
+	nm-connection-editor youtube-dl transmission-gtk dnsutils \
+	curlie gping dog
 
 zsh:
-	@yay -S zsh oh-my-zsh-git
+	@echo "Oh My ZSH requires you to add the ssh key in Github"
+	@read
+	@yay -S zsh oh-my-zsh-git zsh-autosuggestions zsh-syntax-highlighting
 
 cloud:
 	@yay -S google-cloud-sdk kubens kubectx k9s dive velero linkerd popeye helm
