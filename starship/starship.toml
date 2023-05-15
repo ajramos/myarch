@@ -45,9 +45,9 @@ $character
 [username]
 show_always = true
 style_user = "bg:#263238"
-style_root = "bg:#263238"
+style_root = "fg:#fdd835 bg:#263238"
 format = '[$user ]($style)'
-disabled = true
+disabled = false
 
 # An alternative to the username module which displays a symbol that
 # represents the current operating system
