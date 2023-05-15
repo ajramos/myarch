@@ -38,6 +38,7 @@ else
 fi
 
 bspc config border_width         2
+bspc config border_radius        15
 bspc config window_gap           5
 
 # Colors

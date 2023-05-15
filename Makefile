@@ -284,7 +284,7 @@ bluetooth:
 	@yay -S bluez bluez-utils pulseaudio-bluetooth blueman
 
 wm:
-	@yay -S bspwm sxhkd 
+	@yay -S bspwm-rounded-corners-git sxhkd-git
 
 audio:
 	@yay -S alsa-utils pulseaudio pulseaudio-alsa paprefs pavucontrol
