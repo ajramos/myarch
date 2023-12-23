@@ -199,10 +199,6 @@ printer-config:
 	sudo chown root:cups /etc/cups/cups-files.conf
 	@read
 
-pulseaudio-config:
-	@echo "Activation of the echo cancellation filter"
-	echo "load-module module-echo-cancel" | sudo tee -a /etc/pulse/default.pa
-
 ranger-config:
 	@echo "Deploying ranger config files..."
 	@mkdir -pv ~/.config/ranger
@@ -281,13 +277,13 @@ video-driver:
 	@yay -S nvidia nvidia-prime nvidia-settings nvidia-dkms nvidia-utils mesa-demos
 
 bluetooth:
-	@yay -S bluez bluez-utils pulseaudio-bluetooth blueman
+	@yay -S bluez bluez-utils blueman
 
 wm:
 	@yay -S bspwm-rounded-corners-git sxhkd-git
 
 audio:
-	@yay -S alsa-utils pulseaudio pulseaudio-alsa paprefs pavucontrol
+	@yay -S alsa-utils wireplumber pipewire pipewire-pulse paprefs pavucontrol
 
 launch-bar:
 	@yay -S picom feh nitrogen tilix polybar rofi dunst libnotify xdo\
