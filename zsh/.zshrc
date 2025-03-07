@@ -68,7 +68,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux ansible cp copypath copyfile extract fd fzf git kubectl kube-ps1 history httpie gcloud golang jsontools minikube nmap pip python sudo systemadmin tmux urltools vi-mode vscode web-search z zsh-interactive-cd zsh-navigation-tools)
+plugins=(archlinux ansible cp copypath copyfile extract fzf git kubectl kube-ps1 history httpie gcloud golang jsontools minikube nmap pip python sudo systemadmin tmux urltools vi-mode vscode web-search z zsh-interactive-cd zsh-navigation-tools)
 
 source $ZSH/oh-my-zsh.sh
 
